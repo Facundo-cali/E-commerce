@@ -15,7 +15,7 @@ router.get('/create', productsController.create);
 
 
 /*** DETALLES DE ONE PRODUCT ***/ 
-router.get('/detail', productsController.detail); 
+router.get('/detail/:id', productsController.detail); 
 
 // /*** EDIT ONE PRODUCT ***/ 
 //router.get('/edit/:id', productsController.edit); 

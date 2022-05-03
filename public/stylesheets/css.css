@@ -82,6 +82,13 @@ h2{
     color: white;
     text-align: center;
 }
+#price{
+    font-size: 1.5em;
+    margin: 0;
+    color: white;
+    text-align: start;
+    padding-left: 9px;
+}
 .ofertas{
     display: flex;
     flex-wrap: wrap;

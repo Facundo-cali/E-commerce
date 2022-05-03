@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-const indexController = require('../controllers/indexController')
+const mainController = require('../controllers/mainController')
 
 /* GET users listing. */
 
-router.get('/', indexController.index)
+router.get('/', mainController.index)
 
 
 module.exports = router;
