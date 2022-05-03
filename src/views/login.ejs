@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Inicio'}) %>
+<body>
+    <!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
+
+    <main class="main__login">
+        <form class="form__login">
+            <h1 class="form__h1">BIENVENIDO</h1>
+            <label>Email<input class="email_y_pw" type="email" name="Email" placeholder="Email"></label>
+            <label>Contraseña<input class="email_y_pw" type="password" name="password" placeholder="Contraseña"></label>
+            <div class="recordarme">
+            <input type="checkbox" name="recordarme" value="recordarme"><p>Recordarme</p>
+            </div>
+            <p>La combinacion ingresada de email y contraseña no es valida</p>
+            <button class="form__button" type="submit">Ingresar</button>
+        </form>
+    </main>
+
+</body>

@@ -1,0 +1,399 @@
+*{
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    margin: 1 1;
+}
+
+body{
+    background-color: #3E2B47;
+}
+
+/*========------HEADER================--*/
+.header__container{
+    background-color: #F2643E;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.container__menu{
+    display: flex;
+    width: 100%;
+    
+}
+.container__menu .nav1{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.nav1 a{
+    color: #111111;
+    font-size: 24px;
+    text-align: center;
+    align-items: center;
+    padding: 2%;
+}
+.nav2 a{
+    color:#111111;
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    padding: 2%;
+}
+.nav1 a:hover{
+    transform: scale(1.1);
+    transition: .1s;
+    color: white;
+}
+.nav2 a:hover{
+    transform: scale(1.1);
+    transition: .1s;
+    color: white;
+}
+.container__menu .nav2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-left: outset;
+}
+#Buscador {
+    font-family: 'Barlow', sans-serif;
+    width: 100%;
+    border: transparent;
+    padding: 10px 10px 10px 30px;
+    outline: none;
+}
+.logo {
+    width: 125px;
+    height: 125px;
+}
+/*================--FIN HEADER========-----*/
+
+/*================MAIN================-*/
+h2{
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+.ofertas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin: 2%;
+}
+.off{
+    color: rgb(46, 199, 46);
+    margin: 0px;
+    padding: 1% 0% 3% 3%;
+}
+.oferta_ind .nombre_prod{
+    padding: 2% 0% 0% 3%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.oferta_ind{
+    background-color: #111111;
+    border-radius: 3% 3% 3% 3%;
+    color: white;
+}
+.ofertas img{
+    width: 100%;
+    border-radius: 3% 3% 0% 0%;
+}
+.oferta_ind .descr_ofer{
+    display: grid;
+    grid-template-columns: 79% 18%;
+}
+
+
+
+/*========------FIN MAIN================*/
+
+/*========---detalle de producto========-----*/
+.product__detail {
+    background-color: #111111;
+    display: block;
+    border-radius: 3% 3% 3% 3%;
+    color: white;
+    padding-bottom: 2%;
+}
+.product__detail__total {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; 
+}
+
+.product__detail img{
+    width: 100%;
+    border-radius: 3% 3% 0% 0%;
+}
+.nombre__prod__detail{
+    font-size: 1.5rem;
+    color: white;
+    border-bottom: dashed grey 1px;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 1%;
+    text-align: center;
+}
+
+.descripcion__prod__detail{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+.buttons__detail{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.button__detail{
+    width: 70%;
+    background-color: #F2643E;
+    margin-top: 7%;
+    text-align: center;
+    justify-self: center;
+    color: white;
+    border-radius: 2px;
+   
+    padding: 10px;   
+}
+/*========------Fin detalle del producto================*/
+/*====== Formularios ======*/
+.main__login{
+    background-color: #f2643e;
+    border-radius: 5%;
+    width: 100%;
+    max-width: 510px;
+    margin: 1% auto;
+    padding: 12px 12px;
+    justify-content: center;
+}
+
+.form__h1{
+    text-align: center;
+}
+.email_y_pw{
+    width: 100%;
+    border-radius: 2px;
+    margin: 5px 0px 20px 0px;
+    padding: 10px;
+    border: 0px;
+}
+#date{
+    width: 100%;
+    border: transparent;
+    border-radius: 10px;
+    margin: 1%;
+    padding: 10px 10px 10px 30px;
+}
+
+.form__completar{
+    width: 100%;
+    width: 100%;
+    border: transparent;
+    border-radius: 10px;
+    margin: 1%;
+    padding: 10px 10px 10px 30px;
+}
+.recordarme{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+.recordarme input{
+    margin-top: 21px;
+}
+.buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+.form__button{
+    width: 70%;
+    background-color: #0044AA;
+    color: white;
+    border-radius: 2px;
+    margin: 20px 0px 20px 0px;
+    padding: 10px;
+    border: 0px;
+}
+/*======FINAL DE Formularios ======*/
+/*==============INICIO DE  Product Detail ======*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*============FIN DE Product Detail ======*/
+
+/*================-----FOOTER================-*/
+footer{
+    background-color: #111111;
+    
+}
+.todo__footer{
+    align-content: center;
+    background-color: #111111;
+    color: white;
+    padding: 1% 4% 0% 4%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+   
+}
+.todo2__footer{
+    font-style: italic;
+    font-size: 12px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    padding: 0% 4% 0% 4%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
+}
+.ubi__derechos{
+    display: flex;
+    color: white;
+    justify-content: flex-start;
+}
+.terminos__privacidad {
+    display: flex;
+    flex-direction: row;
+    
+    justify-content: flex-end;
+}
+
+.terminos__privacidad a{
+    display: flex;
+    padding: 2%;
+    flex-direction: row;
+    color: grey;
+    justify-content: flex-end;
+    
+}
+.div1footer ul{
+    padding: 0%;
+}
+.div2footer ul{
+    padding-left: 5%;
+    margin-top: 0%;
+}
+.div1footer{
+    border-bottom: solid grey;
+}
+.div2footer ul a{
+    color: grey;
+}
+.div2footer{
+    border-bottom: solid grey;
+}
+.div2footer p{
+    margin-bottom: 6px;
+}
+.div3footer ul{
+    padding: 0%;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.div3footer li{
+    padding: 3%;
+}
+.logo_redsocial{
+    width: 25px;
+    background-color: grey;
+    border-radius: 15%;
+    margin: 1%;
+}
+/*================FIN FOOTER========----*/
+
+
+@media (min-width: 768px){
+    /*========------HEADER================--*/
+   
+    .container__menu .nav1{  
+        text-align: center;
+        flex-direction: row;
+        
+    }
+
+    .container__menu .nav2{
+        flex-direction: row;
+        
+    }
+    /*================--FIN HEADER========-----*/
+
+    .ofertas{
+        flex-direction: row;
+    }
+
+    .oferta_ind{
+        width: 40%;
+    }
+
+    /*================-----FOOTER================-*/
+    .todo__footer{
+        display: grid;
+        grid-template-columns: 0.5fr 1fr 0.3fr;
+    }
+    .todo2__footer{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
+    }
+    .div2footer {
+        border-bottom: none;
+    }
+    .div1footer {
+        border-bottom: none;
+        
+    }
+
+}
+
+@media (min-width: 1024px){
+    .oferta_ind {
+        width: 30%;
+    }
+}
+@media (min-width: 1440px){
+    .oferta_ind {
+        width: 20%;
+    }
+}

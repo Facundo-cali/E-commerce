@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Editando: ' + '¿?'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
+
+	<div class="main__login">
+		<div class="">
+			<div class="">
+				<h2 class="">Estás editando:</h2>
+			</div>
+		</div>
+		<div class="">
+			<form class="form__login" action="" method="get">
+				<div class="">
+					<div class=" ">
+						<label for="name" class="">Nombre del producto:</label>
+						<input type="text" id="name" name="name" class="form__completar">
+					</div>
+					<div class=" ">
+						<label for="price" class="">Precio del producto:</label>
+						<input type="text" id="price" name="price"  class="form__completar">
+					</div>
+					<div class=" ">
+						<label for="discount" class="">Descuento:</label>
+						<input type="text" id="discount" name="discount"  class="form__completar">
+					</div>
+					<div class=" ">
+						<label for="category" class="">Categoría:</label>
+						<select name="category" id="category" class="form__completar">
+							<option value="">Elegí</option>
+							<option value="in-sale">En oferta</option>
+							<option value="visited" >Últimos agregados</option>
+						</select>
+					</div>
+					<div class="">
+						<label for="description" class="">Descipción:</label><br>
+						<textarea name="description" id="description" class="form__completar"></textarea>
+					</div>
+					<div class="">
+						<button type="submit" class="form__button">Guardar producto</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- /todos los productos -->
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>

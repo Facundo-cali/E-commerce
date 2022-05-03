@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Inicio'}) %>
+<body>
+    
+    <!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
+
+    <main>
+        <h2>Ofertas del dia!</h2>
+        <section class="ofertas">
+            <div class="oferta_ind">
+                <a href="/products/detail"><img src="\images\oferta1.jpg" alt="oferta1"></a>
+                <div class="descr_ofer">
+                    <div class="p_de_ofer">
+                        <p class="nombre_prod">Buzo blanco</p>
+                        <p class="off">25% off</p>
+                    </div> 
+                    <a href=""><img src="/images/carrito.png" alt="carrito"></a>
+                </div>
+            </div>
+
+            <div class="oferta_ind">
+                <a href="/products/detail"><img src= "\images\oferta2.jpg" alt="oferta2"></a>
+                <div class="descr_ofer">
+                    <div class="p_de_ofer">
+                        <p class="nombre_prod">Remera hombre</p>
+                        <p class="off">25% off</p>
+                    </div> 
+                    <a href=""><img src="/images/carrito.png" alt="carrito"></a>
+                </div>
+            </div>
+
+            <div class="oferta_ind">
+                <a href="/products/detail"><img src="\images\oferta3.jpg" alt="oferta3"></a>
+                <div class="descr_ofer">
+                    <div class="p_de_ofer">
+                        <p class="nombre_prod">Musculosa hombre</p>
+                        <p class="off">25% off</p>
+                    </div> 
+                    <a href=""><img src="/images/carrito.png" alt="carrito"></a>
+                </div>
+            </div>
+
+            <div class="oferta_ind">
+                <a href="/products/detail"><img src="\images\oferta4.jpg" alt="oferta4"></a>
+                <div class="descr_ofer">
+                    <div class="p_de_ofer">
+                        <p class="nombre_prod">Buzo verde</p>
+                        <p class="off">25% off</p>
+                    </div> 
+                    <a href=""><img src="/images/carrito.png" alt="carrito"></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+   <!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+
+</body>
+</html>
