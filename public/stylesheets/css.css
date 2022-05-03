@@ -127,12 +127,14 @@ h2{
 /*========---detalle de producto========-----*/
 .product__detail {
     background-color: #111111;
+    max-width: 1024px;
     display: block;
     border-radius: 3% 3% 3% 3%;
     color: white;
     padding-bottom: 2%;
 }
 .product__detail__total {
+    align-items: center;
     display: flex;
     flex-direction: column;
     margin-bottom: 20px; 
@@ -146,32 +148,39 @@ h2{
     font-size: 1.5rem;
     color: white;
     border-bottom: dashed grey 1px;
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 1% auto;
     padding-bottom: 1%;
     text-align: center;
 }
-
+.nompre__descr__products {
+    margin: 3%;
+}
 .descripcion__prod__detail{
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     
 }
 .buttons__detail{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-
+#price__detail{
+    align-items: center;
+}
 .button__detail{
-    width: 70%;
+    width: 40%;
     background-color: #F2643E;
-    margin-top: 7%;
+    margin: 2%;
     text-align: center;
     justify-self: center;
     color: white;
     border-radius: 2px;
-   
     padding: 10px;   
+}
+.button__detail p{
+    overflow: hidden;
 }
 /*========------Fin detalle del producto================*/
 /*====== Formularios ======*/
@@ -234,39 +243,6 @@ h2{
     border: 0px;
 }
 /*======FINAL DE Formularios ======*/
-/*==============INICIO DE  Product Detail ======*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*============FIN DE Product Detail ======*/
 
 /*================-----FOOTER================-*/
 footer{
@@ -351,7 +327,7 @@ footer{
 }
 /*================FIN FOOTER========----*/
 
-
+/*====== Media-Queries ======*/
 @media (min-width: 768px){
     /*========------HEADER================--*/
    
@@ -392,7 +368,30 @@ footer{
         
     }
 
+    /*===============Product Detail===============*/
+
+    .product__detail img {
+        width: 60%;
+        border-radius: 3% 3% 3% 3%;
+        
+    }
+    .product__detail{
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 0%;
+    }
+    .product__detail__and__buttons{
+        align-items: center;
+        width: 100%;
+        justify-content: space-around;
+        display: flex;
+        flex-direction: column;
+    }
+    .button__detail{
+        width: 70%;
+    }
 }
+
 
 @media (min-width: 1024px){
     .oferta_ind {

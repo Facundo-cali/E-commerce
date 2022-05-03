@@ -20,7 +20,7 @@ router.get('/detail/:id', productsController.detail);
 // /*** EDIT ONE PRODUCT ***/ 
 //router.get('/edit/:id', productsController.edit); 
 // router.get('/:id', productsController.update); 
-router.get('/edit', productsController.edit)
+router.get('/edit/:id', productsController.edit)
 
 // /*** DELETE ONE PRODUCT***/ 
 // router.get('/:id', productsController.destroy); 

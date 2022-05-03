@@ -10,21 +10,25 @@
         <div><h2>Detalle del producto</h2></div>
         <div class="product__detail">
             <img src="/images/<%=producto_encontrado.image%>" alt="producto1">
-            <p class="nombre__prod__detail"><%=producto_encontrado.name%></p>
-            <p class="descripcion__prod__detail"><%=producto_encontrado.description%></p>
-            
+            <div class="product__detail__and__buttons">
+                
+                <div class="nompre__descr__products">
+                    <p class="nombre__prod__detail"><%=producto_encontrado.name%></p>
+                    <p class="descripcion__prod__detail"><%=producto_encontrado.description%></p>
+                </div>
+                <h2 id="price__detail">$<%=producto_encontrado.price%></h2>
+                <div class="buttons__detail">
+                    <a href="" class="button__detail"><p>COMPRAR AHORA</p></a>
+                    <a href="" class="button__detail"><p>AGREGAR A CARRITO</p></a>
+                    <a href="" class="button__detail"><p>EDITAR PRODUCTO</p></a>
+                    <a href="" class="button__detail"><p>ELIMINAR PRODUCTO</p></a>
+                </div>
+            </div>
         </div>
-        <div class="buttons__detail">
-            <a href="" class="button__detail">COMPRAR AHORA</a>
-            <a href="" class="button__detail">AGREGAR A CARRITO</a>
-            <a href="" class="button__detail">EDITAR PRODUCTO</a>
-            <a href="" class="button__detail">ELIMINAR PRODUCTO</a>
-        </div>
-        
         
     </section>
      <!-- footer -->
-	<%- include('partials/footer') %>
+	<%-include('partials/footer')%>
 	<!-- /footer -->
 
 </body>
