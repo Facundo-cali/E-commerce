@@ -18,16 +18,24 @@
                 </div>
                 <h2 id="price__detail">$<%=producto_encontrado.price%></h2>
                 <div class="buttons__detail">
-                    <a href="" class="button__detail"><p>COMPRAR AHORA</p></a>
-                    <a href="" class="button__detail"><p>AGREGAR A CARRITO</p></a>
-                    <a href="" class="button__detail"><p>EDITAR PRODUCTO</p></a>
-                    <a href="" class="button__detail"><p>ELIMINAR PRODUCTO</p></a>
+                    <form method="POST">
+                        <button class="button__detail" type="submit">COMPRAR AHORA</button>
+                    </form>
+                    <form  method="POST">
+                        <button class="button__detail" type="submit">AGREGAR A CARRITO</button>
+                    </form>
+                    <form method="POST">
+                        <button class="button__detail" type="submit">EDITAR PRODUCTO</button>
+                    </form>
+                    <form action="/products/delete/<%= producto_encontrado.id %>?_method=DELETE" method="POST">
+                        <button class="button__detail" type="submit">ELIMINAR PRODUCTO</button>
+                    </form>
                 </div>
             </div>
         </div>
         
     </section>
-     <!-- footer -->
+    <!-- footer -->
 	<%-include('partials/footer')%>
 	<!-- /footer -->
 

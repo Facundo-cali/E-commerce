@@ -1,47 +1,47 @@
 [
     {
-     "id": 1,
-     "name": "Buzo Nike Blanco",
-     "price": 8000,
-     "discount":20,
-     "category": "visited",
-     "description": "Buzo blanco nike sin capucha 100% algodon adecuado para todo el dia",
-     "image": "buzoBlancoNike.jpg"
+    "id": 1,
+    "name": "Buzo Nike Blanco",
+    "price": 8000,
+    "discount":20,
+    "category": "visited",
+    "description": "Buzo blanco nike sin capucha 100% algodon adecuado para todo el dia",
+    "image": "buzoBlancoNike.jpg"
     },
     {
-     "id": 2,
-     "name": "Remera azul",
-     "price": 5000,
-     "discount":20,
-     "category": "in-sale",
-     "description": "Remera azul hombre nike manga corta 100% algodon",
-     "image": "remeraAzulNike.jpg"
+    "id": 2,
+    "name": "Remera azul",
+    "price": 5000,
+    "discount":20,
+    "category": "in-sale",
+    "description": "Remera azul hombre nike manga corta 100% algodon",
+    "image": "remeraAzulNike.jpg"
     },
     {
-     "id": 3,
-     "name": "Musculosa roja hombre",
-     "price": 3000,
-     "discount":20,
-     "category": "in-sale",
-     "description": "Musculosa roja hombre nike",
-     "image": "musculosaRojaHombre.jpg"
+    "id": 3,
+    "name": "Musculosa roja hombre",
+    "price": 3000,
+    "discount": 20,
+    "category": "in-sale",
+    "description": "Musculosa roja hombre nike",
+    "image": "musculosaRojaHombre.jpg"
     },
     {
-     "id": 4,
-     "name": "Buzo verde",
-     "description": "Buzo verde nike hombre mujer 100% algodon",
-     "price": 7000,
-     "discount":20,
-     "image": "buzoVerdeNike.jpg",
-     "category": "in-sale"
+    "id": 4,
+    "name": "Buzo verde",
+    "description": "Buzo verde nike hombre mujer 100% algodon",
+    "price": 7000,
+    "discount": 20,
+    "image": "buzoVerdeNike.jpg",
+    "category": "in-sale"
     },
     {
-     "id": 5,
-     "name": "Short deportivo negro",
-     "description": "Short deportivo nike hombre 100% algodon",
-     "price": 6000,
-     "discount":20,
-     "image": "shortDeportivoHombre.jpg",
-     "category": "in-sale"
+    "id": 5,
+    "name": "Short deportivo negro",
+    "description": "Short deportivo nike hombre 100% algodon",
+    "price": 6000,
+    "discount": 20,
+    "image": "shortDeportivoHombre.jpg",
+    "category": "in-sale"
     }
 ]

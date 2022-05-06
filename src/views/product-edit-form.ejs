@@ -10,11 +10,11 @@
 	<div class="main__login">
 		<div class="">
 			<div class="">
-				<h2 class="">Estás editando:</h2>
+				<h2 class="">Estás editando: <i><%= producto_encontrado.name %></i></h2>
 			</div>
 		</div>
 		<div class="">
-			<form class="form__login" action="" method="get">
+			<form class="form__login" action="/products/edit/<%= producto_encontrado.id %>" method="get">
 				<div class="">
 					<div class=" ">
 						<label for="name" class="">Nombre del producto:</label>
@@ -38,7 +38,7 @@
 					</div>
 					<div class="">
 						<label for="description" class="">Descipción:</label><br>
-						<textarea name="description" id="description" class="form__completar"></textarea>
+						<textarea name="description" id="description" class="form__completar"><%= producto_encontrado.description %></textarea>
 					</div>
 					<div class="">
 						<button type="submit" class="form__button">Guardar producto</button>

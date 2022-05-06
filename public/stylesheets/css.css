@@ -82,13 +82,7 @@ h2{
     color: white;
     text-align: center;
 }
-#price{
-    font-size: 1.5em;
-    margin: 0;
-    color: white;
-    text-align: start;
-    padding-left: 9px;
-}
+
 .ofertas{
     display: flex;
     flex-wrap: wrap;
@@ -164,24 +158,28 @@ h2{
 .buttons__detail{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
+    gap: 20px;
+}
+.buttons__detail form{
+    width: 45%;
 }
 #price__detail{
     align-items: center;
 }
 .button__detail{
-    width: 40%;
+    font-size: 20px;
+    overflow: hidden;
+    border: transparent;
+    width: 100%;
     background-color: #F2643E;
-    margin: 2%;
     text-align: center;
-    justify-self: center;
     color: white;
     border-radius: 2px;
     padding: 10px;   
 }
-.button__detail p{
-    overflow: hidden;
-}
+
 /*========------Fin detalle del producto================*/
 /*====== Formularios ======*/
 .main__login{
@@ -257,7 +255,6 @@ footer{
     margin-left: auto;
     margin-right: auto;
     max-width: 1440px;
-   
 }
 .todo2__footer{
     font-style: italic;
@@ -383,13 +380,11 @@ footer{
     .product__detail__and__buttons{
         align-items: center;
         width: 100%;
-        justify-content: space-around;
+        justify-content: space-evenly;
         display: flex;
         flex-direction: column;
     }
-    .button__detail{
-        width: 70%;
-    }
+    
 }
 
 
