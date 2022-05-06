@@ -18,9 +18,10 @@ router.post('/store', productsController.store);
 router.get('/detail/:id', productsController.detail); 
 
 // /*** EDIT ONE PRODUCT ***/ 
-//router.get('/edit/:id', productsController.edit); 
-// router.get('/:id', productsController.update); 
-router.get('/edit/:id', productsController.edit)
+router.get('/edit/:id', productsController.edit); 
+router.put('/update', productsController.update); 
+
+
 
 // /*** DELETE ONE PRODUCT***/ 
 router.delete('/delete/:id', productsController.destroy); 

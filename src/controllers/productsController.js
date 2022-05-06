@@ -49,16 +49,31 @@ module.exports = {
 		res.render('detail', {producto_encontrado});
 		
 	},
-
-	destroy : (req, res) => {
+	update:(req,res)=>{
 		for (let i = 0; i < products.length; i++) {
 			if (products[i].id == req.params.id) {
 				producto_encontrado = products[i];
 			}
 		}
-		
-		products.splice(producto_encontrado-1,1);
+		console.log(req.body);
+		const {name,price,discount,category,description} = req.body
+		products.forEach(function(product) {
+			if (product.id === producto_encontrado.id) {
+				product.id = producto_encontrado.id;
+				product.name = name;
+				product.price = price;
+				product.discount = discount;
+				product.category = category;
+				product.description = description;
+			}
+		});
 		guardar(products);
 		res.redirect('/');
+	},
+
+	destroy : (req, res) => {
+		const newProducts = products.filter(producto => producto.id != req.params.id);
+		guardar(newProducts);
+		res.redirect('/products');
 	}
 };

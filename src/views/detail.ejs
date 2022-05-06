@@ -24,8 +24,8 @@
                     <form  method="POST">
                         <button class="button__detail" type="submit">AGREGAR A CARRITO</button>
                     </form>
-                    <form method="POST">
-                        <button class="button__detail" type="submit">EDITAR PRODUCTO</button>
+                    <form action="POST">
+                        <button class="button__detail" type="submit"><a href="/products/edit/<%= producto_encontrado.id %>" style="color: white;">EDITAR PRODUCTO</a></button>
                     </form>
                     <form action="/products/delete/<%= producto_encontrado.id %>?_method=DELETE" method="POST">
                         <button class="button__detail" type="submit">ELIMINAR PRODUCTO</button>
