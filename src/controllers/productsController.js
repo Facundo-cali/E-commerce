@@ -24,12 +24,13 @@ module.exports = {
 			price:price,                              //Tambien se puede hacer let NewProduct = { id:17, ...req}(...req toma todas las propiedades)
 			discount:discount,
 			category:category,
-			description:description
+			description:description,
+			image:req.file.filename
 		};
 		
 		products.push(newProduct);
 		guardar(products);
-		res.redirect('/');
+		res.redirect('/products');
 	},
     edit: (req, res) => {
 		for (let i = 0; i < products.length; i++) {
@@ -68,7 +69,7 @@ module.exports = {
 			}
 		});
 		guardar(products);
-		res.redirect('/');
+		res.redirect('/products');
 	},
 
 	destroy : (req, res) => {

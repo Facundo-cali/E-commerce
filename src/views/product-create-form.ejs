@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<div class="">
-			<form class="form__login" action="/products/store" method="post">
+			<form class="form__login" action="/products/store" method="post" enctype="multipart/form-data">
 				<div class="">
 					<div class="">
 						<label for="name" class="">Nombre del producto:</label>
@@ -39,6 +39,10 @@
 					<div class="">
 						<label for="description" class="">Descipción:</label>
 						<textarea name="description" id="description" class="form__completar"></textarea>
+					</div>
+					<div class="">
+						<label for="" class="form__completar">Image:</label>
+						<input type="file" name="image">
 					</div>
 					<div class="">
 						<button type="submit" class="form__button">Guardar producto</button>
