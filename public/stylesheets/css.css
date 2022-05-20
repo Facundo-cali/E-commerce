@@ -2,17 +2,20 @@
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Merriweather Sans', sans-serif;
     margin: 1 1;
 }
 
 body{
-    background-color: #3E2B47;
+    background-color: #E6BA95;
 }
 
 /*========------HEADER================--*/
+h3{
+    margin:7px auto;
+}
 .header__container{
-    background-color: #F2643E;
+    background-color: #E0D8B0;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -80,15 +83,16 @@ body{
 h2{
     font-size: 2em;
     color: white;
-    text-align: center;
+    text-align: start;
+    margin: 6px 10px;
 }
 
 .ofertas{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 10px;
-    margin: 2%;
+    gap: 5px;
+    
 }
 .off{
     color: rgb(46, 199, 46);
@@ -101,8 +105,9 @@ h2{
     margin-bottom: 0px;
 }
 .oferta_ind{
-    background-color: #111111;
+    background-color: #CE9461;
     border-radius: 3% 3% 3% 3%;
+    margin: 1% 0% 1% 0%;
     color: white;
 }
 .ofertas img{
@@ -113,7 +118,13 @@ h2{
     display: grid;
     grid-template-columns: 79% 18%;
 }
-
+.carrito{
+    margin:auto;
+}
+.titu{
+    text-align: center;
+    margin-top: 2%;
+}
 
 
 /*========------FIN MAIN================*/
@@ -173,7 +184,7 @@ h2{
     overflow: hidden;
     border: transparent;
     width: 100%;
-    background-color: #F2643E;
+    background-color: #e6ba95;
     text-align: center;
     color: white;
     border-radius: 2px;
@@ -183,45 +194,32 @@ h2{
 /*========------Fin detalle del producto================*/
 /*====== Formularios ======*/
 .main__login{
-    background-color: #f2643e;
-    border-radius: 5%;
+    background-color: #DEA057;
+    border-radius: 2%;
     width: 100%;
     max-width: 510px;
     margin: 1% auto;
     padding: 12px 12px;
-    justify-content: center;
-}
 
+}
+.main__login div{
+    margin: 4% auto;
+}
 .form__h1{
     text-align: center;
-}
-.email_y_pw{
-    width: 100%;
-    border-radius: 2px;
-    margin: 5px 0px 20px 0px;
-    padding: 10px;
-    border: 0px;
-}
-#date{
-    width: 100%;
-    border: transparent;
-    border-radius: 10px;
-    margin: 1%;
-    padding: 10px 10px 10px 30px;
 }
 
 .form__completar{
     width: 100%;
-    width: 100%;
     border: transparent;
     border-radius: 10px;
-    margin: 1%;
+    margin: 4px auto;
     padding: 10px 10px 10px 30px;
 }
 .recordarme{
     display: flex;
     flex-direction: row;
-    justify-content: end;
+    justify-content: start;
 }
 .recordarme input{
     margin-top: 21px;
@@ -236,7 +234,6 @@ h2{
     background-color: #0044AA;
     color: white;
     border-radius: 2px;
-    margin: 20px 0px 20px 0px;
     padding: 10px;
     border: 0px;
 }

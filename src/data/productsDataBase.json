@@ -43,14 +43,5 @@
   "discount": 20,
   "image": "shortDeportivoHombre.jpg",
   "category": "in-sale"
- },
- {
-  "id": 6,
-  "name": "tornado",
-  "price": "3300",
-  "discount": "0",
-  "category": "visited",
-  "description": "el tornado de mi viejo",
-  "image": "image-1652159713095-978497797.jpeg"
  }
 ]

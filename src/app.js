@@ -8,6 +8,7 @@ const methodOverride =  require('method-override');
 const indexRouter = require('./routes/main');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
+const logMiddleware = require('./middlewares/logMiddleware');
 const app = express();
 
 // view engine setup
@@ -21,6 +22,7 @@ app.use(express.static('public'));
 app.use(methodOverride('_method'));
 
 
+app.use(logMiddleware);
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/products', productsRouter);

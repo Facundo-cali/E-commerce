@@ -1,17 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 
+
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
-let guardar = (products)=>{fs.writeFileSync(path.join(__dirname, "../data/productsDataBase.json"),JSON.stringify(products, null, " "),"utf-8");
-console.log(products);}	
+let guardar = (products)=>{fs.writeFileSync(path.join(__dirname, "../data/productsDataBase.json"),JSON.stringify(products, null, " "),"utf-8")}	
 
-
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 module.exports = {
 	index: (req, res) => {
-		res.render('products', {products});
+		res.render('products', {products,toThousand});
 	},
     create: (req, res) => {
 		res.render('product-create-form');
@@ -47,7 +47,7 @@ module.exports = {
 				producto_encontrado = products[i];
 			}
 		}
-		res.render('detail', {producto_encontrado});
+		res.render('detail', {producto_encontrado,toThousand});
 		
 	},
 	update:(req,res)=>{

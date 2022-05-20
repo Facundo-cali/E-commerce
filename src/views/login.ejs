@@ -10,12 +10,18 @@
     <main class="main__login">
         <form class="form__login">
             <h1 class="form__h1">BIENVENIDO</h1>
-            <label>Email<input class="email_y_pw" type="email" name="Email" placeholder="Email"></label>
-            <label>Contraseña<input class="email_y_pw" type="password" name="password" placeholder="Contraseña"></label>
-            <div class="recordarme">
-            <input type="checkbox" name="recordarme" value="recordarme"><p>Recordarme</p>
+            <div>
+                <label>Email<input class="form__completar" type="email" name="Email" placeholder="Email"></label>
             </div>
-            <p>La combinacion ingresada de email y contraseña no es valida</p>
+            <div>
+                <label>Contraseña<input class="form__completar" type="password" name="password" placeholder="Contraseña"></label>
+            </div>
+            <div class="recordarme">
+                <input type="checkbox" name="recordarme" value="recordarme"><p>Recordarme</p>
+            </div>
+            <div>
+                <p>La combinacion ingresada de email y contraseña no es valida</p>
+            </div>
             <button class="form__button" type="submit">Ingresar</button>
         </form>
     </main>

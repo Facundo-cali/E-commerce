@@ -7,7 +7,7 @@
 	<%- include('partials/header') %>
 	<!-- /Header -->
     <section class="product__detail__total">
-        <div><h2>Detalle del producto</h2></div>
+        <h2>Detalle del producto</h2>
         <div class="product__detail">
             <img src="/images/<%=producto_encontrado.image%>" alt="producto1">
             <div class="product__detail__and__buttons">
@@ -16,7 +16,7 @@
                     <p class="nombre__prod__detail"><%=producto_encontrado.name%></p>
                     <p class="descripcion__prod__detail"><%=producto_encontrado.description%></p>
                 </div>
-                <h2 id="price__detail">$<%=producto_encontrado.price%></h2>
+                <h2 id="price__detail">$ <%= toThousand(producto_encontrado.price) %> </h2>
                 <div class="buttons__detail">
                     <form method="POST">
                         <button class="button__detail" type="submit">COMPRAR AHORA</button>
