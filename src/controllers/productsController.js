@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
+const {check, body, validationResult} = require('express-validator');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -9,29 +9,44 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 let guardar = (products)=>{fs.writeFileSync(path.join(__dirname, "../data/productsDataBase.json"),JSON.stringify(products, null, " "),"utf-8")}	
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+
+
 module.exports = {
+
 	index: (req, res) => {
 		res.render('products', {products,toThousand});
 	},
+
     create: (req, res) => {
 		res.render('product-create-form');
 	},
+
 	store: (req, res) => {
-		const {name,price,discount,category,description} = req.body// Do the magic
-		let newProduct = {
-			id:products[products.length-1].id+1,    //busco el ultimo elemento del array y le sumo 1;
-			name:name,
-			price:price,                              //Tambien se puede hacer let NewProduct = { id:17, ...req}(...req toma todas las propiedades)
-			discount:discount,
-			category:category,
-			description:description,
-			image:req.file.filename
-		};
+		const resultado = validationResult(req);
+
+		if(resultado.isEmpty()){
 		
-		products.push(newProduct);
-		guardar(products);
-		res.redirect('/products');
+			const {name,price,discount,category,description} = req.body// Do the magic
+			let newProduct = {
+				id:products[products.length-1].id+1,    //busco el ultimo elemento del array y le sumo 1;
+				name:name,
+				price:price,                              //Tambien se puede hacer let NewProduct = { id:17, ...req}(...req toma todas las propiedades)
+				discount:discount,
+				category:category,
+				description:description,
+				image:req.file.filename
+			};
+			
+			products.push(newProduct);
+			guardar(products);
+			res.redirect('/products');
+
+		}else {
+			res.render('product-create-form',{errors: resultado.errors, old: req.body});
+		}
 	},
+
     edit: (req, res) => {
 		for (let i = 0; i < products.length; i++) {
 			if (products[i].id == req.params.id) {
@@ -40,6 +55,7 @@ module.exports = {
 		}
 		res.render('product-edit-form', {producto_encontrado});
 	},
+
     detail: (req, res) => {
 
 		for (let i = 0; i < products.length; i++) {
@@ -50,6 +66,7 @@ module.exports = {
 		res.render('detail', {producto_encontrado,toThousand});
 		
 	},
+
 	update:(req,res)=>{
 		for (let i = 0; i < products.length; i++) {
 			if (products[i].id == req.params.id) {

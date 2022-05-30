@@ -4,9 +4,11 @@ var path = require('path');
 const router = express.Router();
 const multer = require('multer');
 // ************ Controller Require ************
+const validator = require('../middlewares/rutas/validator');
 const productsController = require('../controllers/productsController');
-
+//subir imagen
 const storage = multer.diskStorage({
+
     destination: function (req, file, cb) {
         cb(null, path.join(__dirname,'../../public/images'))
     },
@@ -15,20 +17,17 @@ const storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname))
     }
 })
-const upload = multer({ storage: storage })
+const upload = multer({ storage: storage });
 
 /*** GET ALL PRODUCTS ***/ 
 router.get('/', productsController.index); 
 
 // /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', productsController.create); 
-router.post('/store',upload.single('image'),productsController.store); 
-
-
 
 /*** DETALLES DE ONE PRODUCT ***/ 
 router.get('/detail/:id', productsController.detail); 
-
+router.post('/store',upload.single('image'),validator.product,productsController.store); 
 // /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id', productsController.edit); 
 router.put('/update', productsController.update); 

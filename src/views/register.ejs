@@ -8,18 +8,27 @@
 	<!-- /Header -->
 
     <main class="main__login">
+        <% if (typeof errors != 'undefined') { %> 
+            <ul>
+                <% for (let i = 0; i <  errors.length; i++) { %> 
+                    <li>
+                        <%= errors[i].msg %> 
+                    </li>
+                <% } %> 
+            </ul>
+        <% } %> 
         <form class="form__login" action="/user/store" method="post">
             <h1 class="form__h1">Registrate</h1>
             <div><label>Nombre y apellido: <input class="form__completar" type="text" name="username"></label></div>
             <div><label>Email:<input class="form__completar" type="email" name="email" ></label></div>
-            <!-- <div> <h3>Fecha de nacimiento</h3>
-            <input class="form__completar" type="date"></div> -->
+            <div> <h3>Fecha de nacimiento</h3>
+            <input class="form__completar" type="date"></div>
             <div><h3>Domicilio</h3> <input class="form__completar" type="text" name="adress" placeholder="Domicilio"></div>
             <!-- <div><h3>Elegí tu foto de usuario:</h3>
             <input type="file" name="user_img " accept=".pdf,.jpg,.png"></div> -->
             <div><h3>Elegi tu contraseña</h3>
             <label>Contraseña:<input class="form__completar" type="password" name="password"></label></div>
-            <!-- <div><label>Confirmar contraseña:<insput class="form__completar" type="password" name="pass"></label></div> -->
+            <!-- <div><label>Confirmar contraseña:<input class="form__completar" type="password" name="pass"></label></div> -->
             <div class="buttons">
                 <button class="form__button" type="submit">Enviar</button>
                 <button class="form__button" type="reset">Borrar</button>

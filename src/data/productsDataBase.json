@@ -43,5 +43,23 @@
   "discount": 20,
   "image": "shortDeportivoHombre.jpg",
   "category": "in-sale"
+ },
+ {
+  "id": 6,
+  "name": "motosss",
+  "price": "100",
+  "discount": "5",
+  "category": "in-sale",
+  "description": "motomoto",
+  "image": "image-1653542203926-289370453.jpg"
+ },
+ {
+  "id": 7,
+  "name": "sfdsdsf",
+  "price": "10",
+  "discount": "10",
+  "category": "",
+  "description": "tu mamamamamam",
+  "image": "image-1653550126762-381294955.png"
  }
 ]

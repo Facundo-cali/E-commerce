@@ -17,16 +17,23 @@
 			<form class="form__login" action="/products/store" method="post" enctype="multipart/form-data">
 				<div class="">
 					<div class="">
+
+						<% if(typeof errors != "undefined"){ %>
+							<% errors.forEach(error => { %>
+								<p><%= error.msg %> </p>
+							<% }) %>
+						<% } %> 
+
 						<label for="name" class="">Nombre del producto:</label>
-						<input type="text" id="name" name="name" class="form__completar" placeholder="Ej: Zapatillas air-max" >
+						<input type="text" id="name" name="name" class="form__completar" placeholder="Ej: Zapatillas air-max" value="<%= typeof old != 'undefined' ? old.name : "" %>">
 					</div>
 					<div class="">
 						<label for="price" class="">Precio del producto:</label>
-						<input type="text" id="price" name="price" class="form__completar" placeholder="Ej: 10678">
+						<input type="text" id="price" name="price" class="form__completar" placeholder="Ej: 10678" value="<%= typeof old != 'undefined' ? old.price : "" %>">
 					</div>
 					<div class="">
 						<label for="discount" class="">Descuento:</label>
-						<input type="text" id="discount" name="discount" class="form__completar" placeholder="Ej: 15">
+						<input type="text" id="discount" name="discount" class="form__completar" placeholder="Ej: 15" value="<%= typeof old != 'undefined' ? old.discount : "" %>">
 					</div>
 					<div class="">
 						<label for="category" class="">Categoría:</label>
@@ -38,7 +45,7 @@
 					</div>
 					<div class="">
 						<label for="description" class="">Descipción:</label>
-						<textarea name="description" id="description" class="form__completar"></textarea>
+						<textarea name="description" id="description" class="form__completar" value="<%= typeof old != 'undefined' ? old.description : "" %>"></textarea>
 					</div>
 					<div class="">
 						<label for="" class="">Selecciona una imagen:</label>
