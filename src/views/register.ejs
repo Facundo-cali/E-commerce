@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Include Head -->
-<%- include('partials/head', {title: 'Inicio'}) %>
+<%- include('partials/head', {title: 'Register'}) %>
 <body>
     <!-- Header -->
 	<%- include('partials/header') %>
@@ -17,7 +17,7 @@
                 <% } %> 
             </ul>
         <% } %> 
-        <form class="form__login" action="/user/store" method="post">
+        <form class="form__login" action="/users/store" method="post">
             <h1 class="form__h1">Registrate</h1>
             <div><label>Nombre y apellido: <input class="form__completar" type="text" name="username"></label></div>
             <div><label>Email:<input class="form__completar" type="email" name="email" ></label></div>

@@ -1,14 +1,16 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const methodOverride =  require('method-override'); 
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookie = require('cookie-parser');
+var logger = require('morgan');
+const log = require('./middlewares/application/log.js')
+var methodOverride =  require('method-override'); 
+var session = require('express-session');
 
-const indexRouter = require('./routes/main');
-const usersRouter = require('./routes/users');
-const productsRouter = require('./routes/products');
-const app = express();
+var indexRouter = require('./routes/main');
+var usersRouter = require('./routes/users');
+var productsRouter = require('./routes/products');
+var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, '/views'));
@@ -16,14 +18,20 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookie());
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
+app.use(session({
+  secret: 'pagina de facu!',
+  resave: true,
+  saveUninitialized: true
+}));
+//mis middlewares
+app.use(log);
 
-
-
+//utilizamos los routers
 app.use('/', indexRouter);
-app.use('/user', usersRouter);
+app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 
 // catch 404 and forward to error handler

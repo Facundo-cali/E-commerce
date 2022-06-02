@@ -1,6 +1,6 @@
-const { body } = require("express-validator");
+const { body, check } = require("express-validator");
 var path = require("path");
-let fs = require('fs');
+
 
 
 module.exports = {
@@ -38,5 +38,15 @@ module.exports = {
                 }
                 return false;
             })    
-    ]
+    ],
+
+    login: [
+        body ("email")
+            .notEmpty()
+            .withMessage('Completar email'),
+        body ("password")
+            .notEmpty()
+            .withMessage('Completar contraseña'),
+    ],
+
 }

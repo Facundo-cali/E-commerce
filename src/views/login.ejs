@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Include Head -->
-<%- include('partials/head', {title: 'Inicio'}) %>
+<%- include('partials/head', {title: 'Login'}) %>
 <body>
     <!-- Header -->
 	<%- include('partials/header') %>
 	<!-- /Header -->
 
     <main class="main__login">
-        <form class="form__login">
+        <form class="form__login" action="/users/login" method="post">
+            <% if(typeof errors != "undefined"){ %>
+                <% errors.forEach(error => { %>
+                    <p><%= error.msg %> </p>
+                <% }) %>
+            <% } %> 
             <h1 class="form__h1">BIENVENIDO</h1>
             <div>
-                <label>Email<input class="form__completar" type="email" name="Email" placeholder="Email"></label>
+                <label>Email
+                    <input class="form__completar" type="email" name="email" placeholder="Email">
+                </label>
             </div>
             <div>
-                <label>Contraseña<input class="form__completar" type="password" name="password" placeholder="Contraseña"></label>
+                <label>Contraseña
+                    <input class="form__completar" type="password" name="password" placeholder="Contraseña">
+                </label>
             </div>
             <div class="recordarme">
-                <input type="checkbox" name="recordarme" value="recordarme"><p>Recordarme</p>
+                <label for="">Recordame</label>
+                <input type="checkbox" name="recordarme">
             </div>
-            <div>
-                <p>La combinacion ingresada de email y contraseña no es valida</p>
-            </div>
-            <button class="form__button" type="submit">Ingresar</button>
+            <button class="form__button" type="submit" value="login">Ingresar</button>
         </form>
     </main>
 

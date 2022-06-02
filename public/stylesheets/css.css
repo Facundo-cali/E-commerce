@@ -216,14 +216,7 @@ h2{
     margin: 4px auto;
     padding: 10px 10px 10px 30px;
 }
-.recordarme{
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-}
-.recordarme input{
-    margin-top: 21px;
-}
+
 .buttons{
     display: grid;
     grid-template-columns: 1fr 1fr;
