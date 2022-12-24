@@ -2,24 +2,27 @@
     <a href="/"><img class="logo" src="\images\kisspng-nike-swoosh-logo-brand-nike-5abe1b5179b2c7.6107499115224082734985.png" alt="logo"></a>
     <div class="container__menu">
             <nav class="nav1">
-                <a href="">HOMBRE</a>
-                <a href="">MUJER</a>
-                <a href="">OFERTAS</a>
-                <a href="/products">PRODUCTOS</a>
-                <a href="/products/create">VENDER</a>
+                <% if (usuario){ %> 
+                    <a href="">HOMBRE</a>
+                    <a href="">MUJER</a>
+                    <a href="">OFERTAS</a>
+                    <a href="/products">PRODUCTOS</a>
+                    <a href="/products/create">VENDER</a>
+                <% }else { %>
+                    <a href="">HOMBRE</a>
+                    <a href="">MUJER</a>
+                    <a href="">OFERTAS</a>
+                    <a href="/products">PRODUCTOS</a>
+                <% } %>  
             </nav>
             <nav class="nav2">
                 <% if (usuario){ %> 
-
                     <a href=""><%= usuario %> </a>
                     <a href="">VER CARRITO</a>
-
                 <% }else { %>
                     <a href="/users/login">LOGIN</a>
                     <a href="/users/register">REGISTRO</a>
                 <% } %>  
-                
-                
                 
             </nav>                
     </div>

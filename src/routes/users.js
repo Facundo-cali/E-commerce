@@ -21,8 +21,8 @@ router.post('/store',[
     .isLength({min: 1})
     .withMessage('Completar direccion valida'),
     check ('password')
-    .isLength({min: 1})
-    .withMessage('Completar contraseña valida'),
+    .isLength({min: 3})
+    .withMessage('La contraseña debe contener al menos 3 caracteres'),
     check ('email').custom(function(value){ //custom para saber si hay un mail igual
         let usersJSON = fs.readFileSync(path.join(__dirname, '../data/usuarios.json'),{encoding: 'utf-8'});//leo base de datos (sin parsear)
         if(usersJSON == ""){

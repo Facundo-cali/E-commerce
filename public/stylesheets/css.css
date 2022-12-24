@@ -24,8 +24,7 @@ h3{
 }
 .container__menu{
     display: flex;
-    width: 100%;
-    
+    width: 100%; 
 }
 .container__menu .nav1{
     width: 100%;

@@ -17,13 +17,11 @@
 			<form class="form__login" action="/products/store" method="post" enctype="multipart/form-data">
 				<div class="">
 					<div class="">
-
 						<% if(typeof errors != "undefined"){ %>
 							<% errors.forEach(error => { %>
 								<p><%= error.msg %> </p>
 							<% }) %>
 						<% } %> 
-
 						<label for="name" class="">Nombre del producto:</label>
 						<input type="text" id="name" name="name" class="form__completar" placeholder="Ej: Zapatillas air-max" value="<%= typeof old != 'undefined' ? old.name : "" %>">
 					</div>

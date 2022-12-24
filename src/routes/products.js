@@ -1,4 +1,3 @@
-// ************ Require's ************
 const express = require('express');
 var path = require('path');
 const router = express.Router();
@@ -8,7 +7,6 @@ const validator = require('../middlewares/rutas/validator');
 const productsController = require('../controllers/productsController');
 //subir imagen
 const storage = multer.diskStorage({
-
     destination: function (req, file, cb) {
         cb(null, path.join(__dirname,'../../public/images'))
     },
@@ -21,20 +19,12 @@ const upload = multer({ storage: storage });
 
 /*** GET ALL PRODUCTS ***/ 
 router.get('/', productsController.index); 
-
-// /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', productsController.create); 
-
-/*** DETALLES DE ONE PRODUCT ***/ 
 router.get('/detail/:id', productsController.detail); 
-router.post('/store',upload.single('image'),validator.product,productsController.store); 
-// /*** EDIT ONE PRODUCT ***/ 
+router.post('/store',upload.single('image'),validator.product,productsController.store); //este tiene el validator de product
+
 router.get('/edit/:id', productsController.edit); 
 router.put('/update', productsController.update); 
-
-
-
-// /*** DELETE ONE PRODUCT***/ 
 router.delete('/delete/:id', productsController.destroy); 
 
 

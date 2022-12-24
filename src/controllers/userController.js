@@ -22,13 +22,12 @@ module.exports = {
 					adress:req.body.adress,
 					password:bcrypt.hashSync(req.body.password, 10)
 				}
-
 				//2 - leo lo que hay en json con funcion previamente creada (arriba de todo), esta funcion retorna un string
 				let usuarios = leerJson(); 
 				
 				usuarios.push(usuario);  // 4 - pusheo el nuevo usuario al string (osea a la base de datos)
 			
-				usuariosJSON = JSON.stringify(usuarios, null, " ");   // 5 -convierto todo el array de usuarios devuelta a json 
+				let usuariosJSON = JSON.stringify(usuarios, null, " ");   // 5 -convierto todo el array de usuarios devuelta a json 
 
 				fs.writeFileSync(usuariosFilePath,usuariosJSON);// 6 - escribo devuelta la base de datos y ya queda escrita con el nuevo usuario para siempre.
 				
@@ -46,9 +45,12 @@ module.exports = {
 		if (errors.isEmpty()){ //me fijo si no hay errores
 				let usuarios = leerJson();  // primero llamo a los usuarios con la funcion creada previamente arriba.
 				
-				let usuarioEncontrado = usuarios.find(usuario => usuario.email == req.body.email )//busco usuario ingresado en la base de datos
+				let usuarioEncontrado = usuarios.find(usuario => usuario.email == req.body.email)//busco usuario ingresado en la base de datos
 				
-				
+				let validacionPw = bcrypt.compareSync(req.body.password, usuarioEncontrado.password); //verifico si la contraseña es correcta
+				if (validacionPw == false){
+					usuarioEncontrado = undefined; // si no es correcta establezco undefined asi tira error
+				}
 				if(usuarioEncontrado == undefined){
 					return res.render('login', {errors: [
 						{msg: 'Credenciales invalidas'}

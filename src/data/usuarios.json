@@ -76,5 +76,53 @@
   "email": "ChaneNoHizoLaClase@gmail.com",
   "adress": "ChaneNoHizoLaClase",
   "password": "$2b$10$qCnIi5hn5vP/jx.iCz044ez/CEowWnx4nDLioF1K6EN9ixhpwszNa"
+ },
+ {
+  "name": "giu",
+  "email": "giu@gmail.com",
+  "adress": "giu",
+  "password": "$2b$10$tM/AmqbFDJ0k.W1utl.k6O8vyvZqZrCbkYV4apicEj9D1KAjNViFy"
+ },
+ {
+  "name": "ivanchane",
+  "email": "ivanchane@gmail.com",
+  "adress": "ivanchane",
+  "password": "$2b$10$GdfYmseEvlvhCC8VwK6ptu8s0cg6mMAifeUZ.1AlI3cDiBAvPbW3C"
+ },
+ {
+  "name": "rrrrrr",
+  "email": "rrrrrrrrrr@gmail.com",
+  "adress": "rrrrrrrr",
+  "password": "$2b$10$7jLKSKvkknGvjk6MfNbKdeLU9S6UpBP68aS85Mp9U2Wm.x5T.gAWW"
+ },
+ {
+  "name": "hijodeyuta",
+  "email": "hijodeyuta@gmail.com",
+  "adress": "hijodeyuta",
+  "password": "$2b$10$9PPUyOp0aC7yVzVHRoEulenoIRxiZCCLB6mRzHq5/PPyu98NduHoq"
+ },
+ {
+  "name": "hijodemami",
+  "email": "hijodemami@gmail.com",
+  "adress": "hijodemami",
+  "password": "$2b$10$0ZzhQ2rVQW0rKCuVZsjeie1M578rydpSCiZuJd1KKPb0JLAxcJQzW"
+ },
+ {
+  "name": "pitos",
+  "email": "pitos@gmail.com",
+  "adress": "pitos",
+  "password": "$2b$10$IEWuE/PyrCByisxldoj6Vu4G.RnBsnFkctLYd3n/d88ThnQcIrPY2"
+ },
+ {
+  "name": "1234",
+  "email": "1234@gmail.com",
+  "adress": "1234",
+  "password": "$2b$10$gr4WnXFse3UawgUNlbpFBu23ODUp5QwjfpjY6IfaRFeES1M4V8a5W"
+ },
+ {
+  "name": "gabi",
+  "email": "gabi@gmail.com",
+  "adress": "gabi",
+  "password": "$2b$10$CDz7LcYjZ.SA0xO4CeLsGuLk6r2oCCce2nxx/.AWYHh06j7sAELIu"
  }
 ]
