@@ -7,19 +7,31 @@ module.exports = {
     product: [
         body ("name")
             .notEmpty()
-            .withMessage('Completar nombre')
-            .isLength({ min: 5, max: 20})
-            .withMessage("Minimo 5, maximo 20 caracteres"),
+            .withMessage('Completar nombre de la prenda')
+            .isLength({ min: 3, max: 100})
+            .withMessage("Minimo 3, maximo 100 caracteres"),
         body ("price")
             .notEmpty()
-            .withMessage('Completar precio')
-            .isFloat()
-            .withMessage('El campo debe ser un numero'),
-        body ("discount")
+            .withMessage('Completar precio de la prenda')
+            .isNumeric()
+            .withMessage("El precio debe ser un numero"),
+        body ("amount")
             .notEmpty()
-            .withMessage('Completar descuento')
-            .isFloat()
-            .withMessage('El campo debe ser un numero'),
+            .withMessage('Completar cantidad de prendas')
+            .isNumeric()
+            .withMessage("La cantidad de prendas debe ser un numero"),
+        body ("categorie_id")
+            .notEmpty()
+            .withMessage('Completar categoria'),
+        body ("condition_id")
+            .notEmpty()
+            .withMessage('Completar condicion de la prenda'),
+        body ("color_id")
+            .notEmpty()
+            .withMessage('Completar color de la prenda'),
+        body ("size_id")
+            .notEmpty()
+            .withMessage('Completar tamaño de la prenda'),
         body ("image")
             .custom(function(value, { req }){
                 if (req.file != undefined){
@@ -28,16 +40,8 @@ module.exports = {
                 return false;
             })
             .withMessage("Imagen obligatoria")
-            .bail() //bail corta el resto de las validaciones si la anterior da falsa
-            .custom(function(value,{ req }){
-
-                const ext = path.extname(req.file.originalname);
-
-                if(ext == '.jpg' || '.jpeg' || '.png'){
-                    return true;
-                }
-                return false;
-            })    
+            .bail() //bail corta el resto de las validaciones si la anterior da falsa  
+            
     ],
 
     login: [

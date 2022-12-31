@@ -14,18 +14,31 @@
                 
                 <div class="nompre__descr__products">
                     <p class="nombre__prod__detail"><%=producto_encontrado.name%></p>
-                    <p class="descripcion__prod__detail"><%=producto_encontrado.description%></p>
                 </div>
+                <% products.forEach(producto => { %>
+                    <% if (producto_encontrado.id === producto.id) { %>
+                        <p id="price__detail" value="<% producto.id %>"><%= producto.Categorie.gender %> </p> 
+                    <% } %>
+                    <% if (producto_encontrado.id === producto.id) { %>
+                        <p id="price__detail" value="<% producto.id %>"><%= producto.Condition.condition %> </p> 
+                    <% } %>
+                    <% if (producto_encontrado.id === producto.id) { %>
+                        <p id="price__detail" value="<% producto.id %>"><%= producto.Color.name %> </p> 
+                    <% } %>
+                    <% if (producto_encontrado.id === producto.id) { %>
+                        <p id="price__detail" value="<% producto.id %>">Talle: <%= producto.Size.number %> </p> 
+                    <% } %>
+                <% }) %>
                 <h2 id="price__detail">$ <%= toThousand(producto_encontrado.price) %> </h2>
                 <div class="buttons__detail">
-                    <form method="POST">
+                    <form>
                         <button class="button__detail" type="submit">COMPRAR AHORA</button>
                     </form>
-                    <form  method="POST">
+                    <form>
                         <button class="button__detail" type="submit">AGREGAR A CARRITO</button>
                     </form>
-                    <form action="POST">
-                        <button class="button__detail" type="submit"><a href="/products/edit/<%= producto_encontrado.id %>" style="color: white;">EDITAR PRODUCTO</a></button>
+                    <form>
+                        <button class="button__detail" type="submit"><a href="/products/edit/<%= producto_encontrado.id %>">EDITAR PRODUCTO</a></button>
                     </form>
                     <form action="/products/delete/<%= producto_encontrado.id %>?_method=DELETE" method="POST">
                         <button class="button__detail" type="submit">ELIMINAR PRODUCTO</button>

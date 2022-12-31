@@ -14,7 +14,8 @@
 			</div>
 		</div>
 		<div class="">
-			<form class="form__login" action="/products/store" method="post" enctype="multipart/form-data">
+			<form class="form__login" action="/products/store" method="POST" enctype="multipart/form-data">
+
 				<div class="">
 					<div class="">
 						<% if(typeof errors != "undefined"){ %>
@@ -27,23 +28,43 @@
 					</div>
 					<div class="">
 						<label for="price" class="">Precio del producto:</label>
-						<input type="text" id="price" name="price" class="form__completar" placeholder="Ej: 10678" value="<%= typeof old != 'undefined' ? old.price : "" %>">
+						<input type="text" id="price" name="price" class="form__completar" placeholder="Ej: 10678" value="<%= //typeof old != 'undefined' ? old.price : "" %>">
 					</div>
 					<div class="">
-						<label for="discount" class="">Descuento:</label>
-						<input type="text" id="discount" name="discount" class="form__completar" placeholder="Ej: 15" value="<%= typeof old != 'undefined' ? old.discount : "" %>">
+						<label for="amount" class="">Cantidad en stock:</label>
+						<input type="text" id="amount" name="amount" class="form__completar" placeholder="Ej: 15" value="<%= //typeof old != 'undefined' ? old.discount : "" %>">
 					</div>
 					<div class="">
-						<label for="category" class="">Categoría:</label>
-						<select name="category" id="category" class="form__completar">
-							<option value="">Elegí</option>
-							<option value="in-sale">En oferta</option>
-							<option value="visited">Últimos agregados</option>
+						<label for="categorie_id" class="">Categoría:</label>
+						<select name="categorie_id" id="categorie_id" class="form__completar">
+							<% categories.forEach(categorie => { %>
+                            	<option value="<%=categorie.id%>"><%= categorie.gender %> </option>     
+                    		<% }) %>
 						</select>
 					</div>
 					<div class="">
-						<label for="description" class="">Descipción:</label>
-						<textarea name="description" id="description" class="form__completar" value="<%= typeof old != 'undefined' ? old.description : "" %>"></textarea>
+						<label for="condition_id" class="">Condición:</label>
+						<select name="condition_id" id="condition_id" class="form__completar">
+							<% conditions.forEach(condition => { %>
+                            	<option value="<%=condition.id %>"> <%= condition.condition %> </option>     
+                    		<% }) %>
+						</select>
+					</div>
+					<div class="">
+						<label for="color_id" class="">Color:</label>
+						<select name="color_id" id="color_id" class="form__completar">
+							<% colors.forEach(color => { %>
+                            	<option value="<%= color.id %>"> <%= color.name %> </option>     
+                    		<% }) %>
+						</select>
+					</div>
+					<div class="">
+						<label for="size_id" class="">Talle:</label>
+						<select name="size_id" id="size_id" class="form__completar">
+							<% sizes.forEach(size => { %>
+								<option value="<%=size.id%>"><%= size.number %> </option>     
+                    		<% }) %>
+						</select>
 					</div>
 					<div class="">
 						<label for="" class="">Selecciona una imagen:</label>
