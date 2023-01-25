@@ -39,7 +39,6 @@ module.exports = {
 		try {
 			const products = await Product.findAll({include:{all:true}})
 			res.render('index', {products,toThousand})
-			// res.json(products)
 		} catch (error) {
 			console.log(error);
 		}
@@ -90,7 +89,6 @@ module.exports = {
 				}
 				const newProduct = await Product.create(info)
 				res.redirect('/products');	
-				console.log(newProduct);
 			}else {
 				res.render('product-create-form',{errors: resultado.errors,categories,conditions,colors,sizes});
 				//Esto hace que si salta algun error (ej no poner titulo), la imagen que se sube no se suba

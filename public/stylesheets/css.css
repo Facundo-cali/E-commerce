@@ -68,7 +68,7 @@ h3{
     justify-content: space-evenly;
     border-left: outset;
 }
-#Buscador {
+#buscador {
     font-family: 'Barlow', sans-serif;
     width: 100%;
     border: transparent;
@@ -79,6 +79,9 @@ h3{
     width: 125px;
     height: 125px;
 }
+.filtro{
+    display: none;
+  }
 /*================--FIN HEADER========-----*/
 
 /*================MAIN================-*/
@@ -102,9 +105,7 @@ h2{
     padding: 1% 0% 3% 3%;
 }
 .oferta_ind .nombre_prod{
-    padding: 2% 0% 0% 3%;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    padding: 0% 0% 1% 5%;
 }
 .oferta_ind{
     background-color: #CE9461;
@@ -197,27 +198,29 @@ h2{
 /*====== Formularios ======*/
 .main__login{
     background-color: #DEA057;
-    border-radius: 2%;
+    border-radius: 5%;
     width: 100%;
     max-width: 510px;
     margin: 1% auto;
     padding: 12px 12px;
-
 }
 .main__login div{
-    margin: 4% auto;
+    margin: 1% auto;
 }
 .form__h1{
     text-align: center;
 }
 
-.form__completar{
+.form__completar {
+    text-align: center;
     width: 100%;
     border: transparent;
-    border-radius: 10px;
-    margin: 4px auto;
-    padding: 10px 10px 10px 30px;
+    border-radius: 5px;
+    margin: 5px auto;
+    padding: 10px 10px 10px 10px;
 }
+
+
 
 .buttons{
     display: grid;
@@ -313,6 +316,14 @@ footer{
     background-color: grey;
     border-radius: 15%;
     margin: 1%;
+}
+.form__completar.error input{
+    border: solid;
+    border-color: #ed4163;
+}
+.form__completar.succes input{
+    border: solid;
+    border-color: #41ed67;
 }
 /*================FIN FOOTER========----*/
 
