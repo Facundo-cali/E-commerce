@@ -39,7 +39,7 @@ module.exports = {
 		// 			adress:req.body.adress,
 		// 			password:bcrypt.hashSync(req.body.password, 10)
 		// 		}
-		// 		//2 - leo lo que hay en json con funcion previamente creada (arriba de todo), esta funcion retorna un string
+		//2 - leo lo que hay en json con funcion previamente creada (arriba de todo), esta funcion retorna un string
 		// 		let usuarios = leerJson(); 
 				
 		// 		usuarios.push(usuario);  // 4 - pusheo el nuevo usuario al string (osea a la base de datos)
@@ -59,34 +59,49 @@ module.exports = {
 	processLogin:async (req,res)=> {
 		// entramos aca una vez que el usuario exista y la contraseña sea correcta
 		// let errors = (validationResult(req));
+		try {
+		const users = await User.findAll({include:{all:true}})	// primero llamo a los usuarios
+		
+		let usuarioEncontrado = users.find(usuario => usuario.email == req.body.email)//busco usuario ingresado en la base de datos
+		if (usuarioEncontrado == undefined) {
+			console.log('NO SE ENCONTRO');	
+		}else{
+			// let validacionPw = bcrypt.compareSync(req.body.password, usuarioEncontrado.password); //verifico si la contraseña es correcta
+			
+			let validacionPw = users.find(usuario => usuario.password == usuarioEncontrado.password); //verifico si la contraseña es correcta
+			
+			if (validacionPw == false){
+				usuarioEncontrado = undefined; // si no es correcta establezco undefined asi tira error
+			}
 
-		if (errors.isEmpty()){ //me fijo si no hay errores
-				let usuarios = leerJson();  // primero llamo a los usuarios con la funcion creada previamente arriba.
-				
-				let usuarioEncontrado = usuarios.find(usuario => usuario.email == req.body.email)//busco usuario ingresado en la base de datos
-				
-				let validacionPw = bcrypt.compareSync(req.body.password, usuarioEncontrado.password); //verifico si la contraseña es correcta
-				if (validacionPw == false){
-					usuarioEncontrado = undefined; // si no es correcta establezco undefined asi tira error
-				}
-				if(usuarioEncontrado == undefined){
-					return res.render('login', {errors: [
-						{msg: 'Credenciales invalidas'}
-					]});
-				}
+			
+			//si las credenciales son validas, guardo en session el mail del usuario y se inicia sesion.
+			req.session.usuario = usuarioEncontrado.email; //guardo en session el email de usuario
 
-				//si las credenciales son validas y todo esta bien, guardo en session el mail del usuario y se inicia sesion.
-				req.session.usuario = usuarioEncontrado.email; //guardo en session el email de usuario
-				
-				//SESSION Y COOKIE SON 2 COSAS DISTINTAS, PUEDO INICIAR SESION SIN GUARDAR COOKIE.
-				//si se tildo el recordarme hacer esto de abajo, si no la tildo, no crea lo cookie por lo cual no se guarda la cookie pero igualmente setie en el partial headers que me muestre el usuario, con la diferencia que no se crea la cookie, despues uso la cookie para hacer que aunque cierre el navegador la sesion siga iniciada.
-				if (req.body.recordarme != undefined) {
-					//quiero crear la cookie
-					res.cookie("recordarme",usuarioEncontrado.email,{maxAge: 1000 * 60 })
-				}
-				res.redirect('/products');
-		}else{//si hay errores (del validator, osea los que no sean de credenciales) tira esos errores
-			return res.render('login', {errors: errors.errors})
+
+			//SESSION Y COOKIE SON 2 COSAS DISTINTAS, PUEDO INICIAR SESION SIN GUARDAR COOKIE.
+			//si se tildo "recordarme" se guarda la cookie y puedo cerrar el navegador manteniendo la sesion iniciada, si no tildo "recordarme" no se guarda la cookie
+			if (req.body.recordarme != undefined) {
+				//quiero crear la cookie
+				res.cookie("recordarme",usuarioEncontrado.email,{maxAge: 1000 * 60 })
+			}
 		}
+			
+		// if(usuarioEncontrado == undefined){
+		// 	return res.render('login', {errors: [
+			// 		{msg: 'Credenciales invalidas'}
+			// 	]});
+			// }
+			
+		res.redirect('/products');
+
+
+		} catch (error) {
+			console.log(error);
+		}
+		// if (errors.isEmpty()){ //me fijo si no hay errores
+		// }else{//si hay errores (del validator, osea los que no sean de credenciales) tira esos errores
+				// return res.render('login', {errors: errors.errors})
+		// }
 	}
 }
