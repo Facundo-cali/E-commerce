@@ -4,12 +4,6 @@ const bcrypt = require('bcrypt');
 let { check, validationResult, body } = require('express-validator');
 const {User} = require('../database/models');
 
-
-// const usuariosFilePath = path.join(__dirname, '../data/usuarios.json');
-// const leerJson = () => {
-// 	jsonUsers = fs.readFileSync(usuariosFilePath, {encoding: 'utf-8'}); //necesito que lea la base de datos y me devuelva un string, por eso retorno un JSON.parse.
-// 	return JSON.parse(jsonUsers);
-// }
 module.exports = {
     showRegister:async (req, res) => {
 		try {
