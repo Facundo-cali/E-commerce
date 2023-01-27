@@ -31,6 +31,7 @@ router.post('/store'
 router.get('/login', userController.showLogin);
 
 //--------------tomo los datos del formulario de login
-router.post('/login', userController.processLogin);
+router.post('/login',validator.login, userController.processLogin);
 // router.post('/login',validator.login, userController.processLogin);
+router.get('/logout', userController.logout);
 module.exports = router;

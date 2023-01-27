@@ -2,6 +2,7 @@
 <html lang="en">
 <!-- Include Head -->
 <%- include('partials/head', {title: 'Login'}) %>
+<script src="/javascripts/login.js" defer></script>
 <body>
     <!-- Header -->
 	<%- include('partials/header') %>
@@ -15,14 +16,16 @@
                 <% }) %>
             <% } %> 
             <h1 class="form__h1">BIENVENIDO</h1>
-            <div>
+            <div class="form__completar">
                 <label>Email
-                    <input class="form__completar" type="email" name="email" placeholder="Email">
+                    <input class="form__completar" type="email" name="email" id="email" placeholder="Email">
+                    <small></small>
                 </label>
             </div>
-            <div>
+            <div class="form__completar">
                 <label>Contraseña
-                    <input class="form__completar" type="password" name="password" placeholder="Contraseña">
+                    <input class="form__completar" type="password" name="password" id="password" placeholder="Contraseña">
+                    <small></small>
                 </label>
             </div>
             <div class="recordarme">

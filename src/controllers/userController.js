@@ -24,7 +24,7 @@ module.exports = {
 				name:req.body.username,
 				surname:req.body.surname,
 				email:req.body.email,
-				pw_hash:req.body.password,
+				pw_hash:bcrypt.hashSync(req.body.password, 10),
 			}
 			const newUser = User.create(info);
 			res.redirect('/products');
@@ -57,51 +57,51 @@ module.exports = {
 		res.render('login');
 	},
 	processLogin:async (req,res)=> {
-		// entramos aca una vez que el usuario exista y la contraseña sea correcta
-		// let errors = (validationResult(req));
 		try {
-		const users = await User.findAll({include:{all:true}})	// primero llamo a los usuarios
-		
-		let usuarioEncontrado = users.find(usuario => usuario.email == req.body.email)//busco usuario ingresado en la base de datos
-		if (usuarioEncontrado == undefined) {
-			console.log('NO SE ENCONTRO');	
-		}else{
-			// let validacionPw = bcrypt.compareSync(req.body.password, usuarioEncontrado.password); //verifico si la contraseña es correcta
-			
-			let validacionPw = users.find(usuario => usuario.password == usuarioEncontrado.password); //verifico si la contraseña es correcta
-			
-			if (validacionPw == false){
-				usuarioEncontrado = undefined; // si no es correcta establezco undefined asi tira error
+			// entramos aca una vez que el usuario exista y la contraseña sea correcta
+			let errors = (validationResult(req));
+			if (errors.isEmpty()) { //me fijo si no hay errores
+				const users = await User.findAll({include:{all:true}})	// primero llamo a los usuarios
+				
+				let usuarioEncontrado = users.find(usuario => usuario.email == req.body.email)//busco usuario ingresado en la base de datos
+				// let validacionPw = bcrypt.compareSync(req.body.password, usuarioEncontrado.password); //verifico si la contraseña es correcta
+				let validacionPw = bcrypt.compareSync(req.body.password, usuarioEncontrado.pw_hash); //verifico si la contraseña es correcta
+				if (validacionPw == false){
+					usuarioEncontrado = undefined; // si no es correcta establezco undefined asi tira error
+				}
+	
+				if (usuarioEncontrado == undefined) { 
+					return res.render('login', {errors: [
+						{msg: 'Credenciales invalidas'}
+					]});	
+				}else{
+	
+					//si las credenciales son validas, guardo en session el mail del usuario y se inicia sesion.
+					req.session.usuario = usuarioEncontrado.email; //guardo en session el email de usuario
+	
+					//SESSION Y COOKIE SON 2 COSAS DISTINTAS, PUEDO INICIAR SESION SIN GUARDAR COOKIE.
+					//si se tildo "recordarme" se guarda la cookie y puedo cerrar el navegador manteniendo la sesion iniciada, si no tildo "recordarme" no se guarda la cookie
+					if (req.body.recordarme != undefined) {
+						//quiero crear la cookie
+						res.cookie("recordarme",usuarioEncontrado.email,{maxAge: 1000 * 60 })
+					}
+					res.redirect('/products');
+				}
+			}else{ //si hay errores (del validator, osea los que no sean de credenciales) tira esos errores
+				return res.render('login', {errors: errors.errors})
 			}
-
-			
-			//si las credenciales son validas, guardo en session el mail del usuario y se inicia sesion.
-			req.session.usuario = usuarioEncontrado.email; //guardo en session el email de usuario
-
-
-			//SESSION Y COOKIE SON 2 COSAS DISTINTAS, PUEDO INICIAR SESION SIN GUARDAR COOKIE.
-			//si se tildo "recordarme" se guarda la cookie y puedo cerrar el navegador manteniendo la sesion iniciada, si no tildo "recordarme" no se guarda la cookie
-			if (req.body.recordarme != undefined) {
-				//quiero crear la cookie
-				res.cookie("recordarme",usuarioEncontrado.email,{maxAge: 1000 * 60 })
-			}
-		}
-			
-		// if(usuarioEncontrado == undefined){
-		// 	return res.render('login', {errors: [
-			// 		{msg: 'Credenciales invalidas'}
-			// 	]});
-			// }
-			
-		res.redirect('/products');
-
-
 		} catch (error) {
 			console.log(error);
 		}
-		// if (errors.isEmpty()){ //me fijo si no hay errores
-		// }else{//si hay errores (del validator, osea los que no sean de credenciales) tira esos errores
-				// return res.render('login', {errors: errors.errors})
-		// }
+	},
+	logout:async (req,res)=> {
+		try {
+			await req.session.destroy();
+			await res.clearCookie("recordarme");
+			res.redirect('/products');
+		} catch (error) {
+			console.log(error);
+		}
 	}
+
 }
