@@ -95,6 +95,7 @@ module.exports = {
 		}
 	},
 	logout:async (req,res)=> {
+		
 		try {
 			await req.session.destroy();
 			await res.clearCookie("recordarme");
