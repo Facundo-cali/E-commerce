@@ -14,7 +14,6 @@ function isEmail(email) {
 
 form.addEventListener('submit', function(event) {
     checkInputs()
-    console.log(Object.keys(errores).length);
     if (Object.keys(errores).length > 0) { //chekeamos que no haya errores
         event.preventDefault(); 
     }

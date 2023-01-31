@@ -18,7 +18,7 @@ module.exports = (sequelize,DataTypes) => {
         Product.belongsTo(models.Condition);
         Product.belongsTo(models.Color);
         Product.belongsTo(models.Size);
-
+        Product.hasMany(models.Item);  
     })
     return Product;
 }

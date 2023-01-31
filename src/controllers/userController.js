@@ -71,7 +71,7 @@ module.exports = {
 				}else{
 	
 					//si las credenciales son validas, guardo en session el mail del usuario y se inicia sesion.
-					req.session.usuario = usuarioEncontrado.email; //guardo en session el email de usuario
+					req.session.usuario = usuarioEncontrado; //guardo en session el email de usuario
 	
 					//SESSION Y COOKIE SON 2 COSAS DISTINTAS, PUEDO INICIAR SESION SIN GUARDAR COOKIE.
 					//si se tildo "recordarme" se guarda la cookie y puedo cerrar el navegador manteniendo la sesion iniciada, si no tildo "recordarme" no se guarda la cookie
