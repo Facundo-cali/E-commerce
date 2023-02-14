@@ -20,13 +20,13 @@
             <nav class="nav2">
                 <% if (usuario){ %> 
                     <a href=""><%= usuario.email %> </a>
-                    <a href="/cart/cart">VER CARRITO</a>
+                    <a href="/cart/cart">MI CARRITO</a>
+                    <a href="/cart/bought">MIS COMPRAS</a>
                     <a href="/users/logout">LOGOUT</a>
                 <% }else { %>
                     <a href="/users/login">LOGIN</a>
                     <a href="/users/register">REGISTRO</a>
                 <% } %>  
-                
             </nav>                
     </div>
     <input type="search" placeholder="Buscar..." id="buscador" />

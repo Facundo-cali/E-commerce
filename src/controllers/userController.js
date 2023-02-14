@@ -25,27 +25,6 @@ module.exports = {
 		} catch (error) {
 			console.log(error);
 		}
-		// let errors = (validationResult(req));
-		// 	if (errors.isEmpty()){     //1 - si no hay errores creo nuevo usuario 
-		// 			let usuario = {
-		// 			name:req.body.username,
-		// 			email:req.body.email,
-		// 			adress:req.body.adress,
-		// 			password:bcrypt.hashSync(req.body.password, 10)
-		// 		}
-		//2 - leo lo que hay en json con funcion previamente creada (arriba de todo), esta funcion retorna un string
-		// 		let usuarios = leerJson(); 
-				
-		// 		usuarios.push(usuario);  // 4 - pusheo el nuevo usuario al string (osea a la base de datos)
-			
-		// 		let usuariosJSON = JSON.stringify(usuarios, null, " ");   // 5 -convierto todo el array de usuarios devuelta a json 
-
-		// 		fs.writeFileSync(usuariosFilePath,usuariosJSON);// 6 - escribo devuelta la base de datos y ya queda escrita con el nuevo usuario para siempre.
-				
-		// 		res.redirect("/users/login")
-		// 		}else {
-		// 			return res.render('register',{errors: errors.errors})
-		// 		}
 	},
     showLogin: (req, res) => {
 		res.render('login');

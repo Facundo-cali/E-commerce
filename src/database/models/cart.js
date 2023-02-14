@@ -5,11 +5,8 @@ module.exports = (sequelize,DataTypes) => {
         order_number: DataTypes.INTEGER.UNSIGNED,
         user_id:DataTypes.INTEGER.UNSIGNED,
         total:DataTypes.INTEGER.UNSIGNED
+    },{
+        timestamps: false
     }) 
-    Cart.associate = (models => {
-        Cart.belongsTo(models.Item, {
-            foreignKey: 'order_number'
-        })
-    })
     return Cart;
 }

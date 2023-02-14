@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('partials/head', {title: 'Shopping cart'}) %>
+<%- include('partials/head', {title: 'My shopping!'}) %>
 <body>
 	<!-- Header -->
 	<%- include('partials/header') %>
@@ -9,7 +9,7 @@
 
 	
 	<main>
-        <h2 class="title">Shopping cart!</h2>
+        <h2 class="title">My shopping!</h2>
         <div class="cart">
             <% if(cartProducto.length != 0) { %>
                 <section class="product__cart">
@@ -20,26 +20,10 @@
                                     <p class="">$<%=item.Product.price%></p>
                                     <p class=""><%=item.Product.name%></p>
                                     <p class="">Cantidad: <%=item.quantity%></p>
-                                    <form action="/cart/deleteCartElement" method="POST">
-                                        <input type="hidden" name="itemId" value="<%= item.product_id %> ">
-                                        <input type="hidden" name="quantity" value="<%= item.quantity %> ">
-                                        <button type="submit">Delete</button>
-                                    </form>
                                 </div>
                             </div>
                             <% }); %> 
                         </section>
-            <div class="venta">
-                <h2>Total: $<%= total %></h2>
-                <a href="">
-                    <form action="/cart/buy" method="POST">
-                        <button type="submit">Comprar</button>
-                    </form>
-                </a>
-                <a href="/products">
-                    <button>Agregar mas cosas al carrito</button>
-                </a>
-            </div>
             <% } %> 
         </div>
     </main>

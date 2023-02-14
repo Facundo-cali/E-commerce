@@ -291,6 +291,9 @@ h2{
 .venta h2{
     text-align: center;
 }
+.venta button{
+    width: 100%;
+}
 
 .cart_image{
     width: 100%;

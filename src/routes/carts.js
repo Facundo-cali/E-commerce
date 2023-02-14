@@ -10,5 +10,9 @@ router.post('/addCart', authMiddleware, cartController.addCart);
 
 router.get('/cart',authMiddleware,cartController.cart)
 router.post('/deleteCartElement',authMiddleware,cartController.deleteCart)
+router.post('/buy', authMiddleware, cartController.buy);
+router.get('/bought', authMiddleware, cartController.bought);
+
+
 
 module.exports = router;
