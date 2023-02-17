@@ -1,55 +1,14 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookie = require('cookie-parser');
-var logger = require('morgan');
-const log = require('./middlewares/application/log.js')
-var methodOverride =  require('method-override'); 
-var session = require('express-session');
+const appserver = require('./server');
+const http = require('http').createServer(appserver);
+const { sequelize } = require('./database/models/index');
 
-var indexRouter = require('./routes/main');
-var usersRouter = require('./routes/users');
-var productsRouter = require('./routes/products');
-var cartRouter = require('./routes/carts');
-var app = express();
+const PORT = process.env.PORT || 3000;
 
-// view engine setup
-app.set('views', path.join(__dirname, '/views'));
-app.set('view engine', 'ejs');
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookie());
-app.use(express.static('public'));
-app.use(methodOverride('_method'));
-app.use(session({
-  secret: 'pagina de facu!',
-  resave: true,
-  saveUninitialized: true
-}));
-//mis middlewares
-app.use(log);
-
-//utilizamos los routers
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/products', productsRouter);
-app.use('/cart', cartRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+http.listen(PORT, () => {
+    console.log(`Running on port: ${PORT}`);
+    sequelize.sync({ force: false }).then(() => {
+        console.log('conection to DB success');
+    }).catch(error => {
+        console.log('conection error: ', error);
+    })
 });
-
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-module.exports = app;

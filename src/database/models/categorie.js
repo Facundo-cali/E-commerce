@@ -1,13 +1,18 @@
-const {sequelize, DataTypes} = require('sequelize')
-
-module.exports = (sequelize,DataTypes) => {
-    const Categorie = sequelize.define('Categorie',{
-        gender: DataTypes.STRING
-    },{
-        timestamps: false
-    }) 
-    Categorie.associate = models => {
-        Categorie.hasMany(models.Product)
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Categorie extends Model {
+    static associate(models) {
+      Categorie.hasMany(models.Product)
     }
-    return Categorie;
-}
+  }
+  Categorie.init({
+    gender: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Categorie'
+  });
+  return Categorie;
+};
