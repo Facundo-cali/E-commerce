@@ -54,7 +54,6 @@ module.exports = {
 			const size = await Size.findAll();
 			const producto_encontrado = await Product.findByPk(productId);
 			res.render('detail', {products, producto_encontrado, categorie, color, condition, size, toThousand})
-			
 		} catch (error) {
 			console.log(error);	
 		}
@@ -81,10 +80,10 @@ module.exports = {
 					name: req.body.name,
 					price:req.body.price,        //Tambien se puede hacer let NewProduct = { id:17, ...req}(...req toma todas las propiedades)
 					amount:req.body.amount,
-					categorieId:req.body.categorieId,
-					conditionId:req.body.conditionId,
-					colorId:req.body.colorId,
-					sizeId:req.body.sizeId,
+					CategorieId:req.body.categorie_id,
+					ConditionId:req.body.condition_id,
+					ColorId:req.body.color_id,
+					SizeId:req.body.size_id,
 					image:req.file.filename
 				}
 				const newProduct = await Product.create(info)

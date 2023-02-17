@@ -29,10 +29,10 @@
 						<input type="text" id="amount" name="amount" class="form__completar" placeholder="Ej: 15" value="<%= producto_encontrado.amount %>">
 					</div>
 					<div class="">
-						<label for="categorie_id" class="">Categoría:</label>
-						<select name="categorie_id" id="categorie_id" class="form__completar">
+						<label for="CategorieId" class="">Categoría:</label>
+						<select name="CategorieId" id="CategorieId" class="form__completar">
 							<% categories.forEach(categorie => { %>
-								<% if (producto_encontrado.categorie_id === categorie.id) { %>
+								<% if (producto_encontrado.CategorieId === categorie.id) { %>
 									<option value="<%=categorie.id%>" selected> <%= categorie.gender %> </option>
 								<% } else { %>   
 									<option value="<%=categorie.id%>"><%= categorie.gender %> </option>
@@ -41,10 +41,10 @@
 						</select>
 					</div>
 					<div class="">
-						<label for="condition_id" class="">Condición:</label>
-						<select name="condition_id" id="condition_id" class="form__completar">
+						<label for="Condition_id" class="">Condición:</label>
+						<select name="ConditionId" id="ConditionId" class="form__completar">
 							<% conditions.forEach(condition => { %>
-								<% if (producto_encontrado.condition_id === condition.id) { %>
+								<% if (producto_encontrado.ConditionId === condition.id) { %>
 									<option value="<%=condition.id%>" selected> <%= condition.condition %> </option>
 								<% } else { %>   
 									<option value="<%=condition.id%>"><%= condition.condition %> </option>
@@ -53,10 +53,10 @@
 						</select>
 					</div>
 					<div class="">
-						<label for="color_id" class="">Color:</label>
-						<select id="color_id" name="color_id" class="form__completar">
+						<label for="ColorId" class="">Color:</label>
+						<select id="ColorId" name="ColorId" class="form__completar">
 							<% colors.forEach(color => { %>
-								<% if (producto_encontrado.color_id === color.id) { %>
+								<% if (producto_encontrado.ColorId === color.id) { %>
 									<option value="<%=color.id%>" selected> <%= color.name %> </option>
 								<% } else { %>   
 									<option value="<%=color.id%>"><%= color.name  %> </option>
@@ -66,10 +66,10 @@
 						</select>
 					</div>
 					<div class="">
-						<label for="size_id" class="">Talle:</label>
-						<select name="size_id" id="size_id" class="form__completar">
+						<label for="SizeId" class="">Talle:</label>
+						<select name="SizeId" id="SizeId" class="form__completar">
 							<% sizes.forEach(size => { %>
-								<% if (producto_encontrado.size_id === size.id) { %>
+								<% if (producto_encontrado.SizeId === size.id) { %>
 									<option value="<%=size.id%>" selected> <%= size.number %> </option>
 								<% } else { %>   
 									<option value="<%=size.id%>" ><%= size.number %></option>
