@@ -1,15 +1,21 @@
-const {sequelize, DataTypes} = require('sequelize')
-
-module.exports = (sequelize,DataTypes) => {
-    const Cart = sequelize.define('Cart',{
-        order_number: DataTypes.INTEGER.UNSIGNED,
-        user_id:DataTypes.INTEGER.UNSIGNED,
-        total:DataTypes.INTEGER.UNSIGNED
-    }) 
-    Cart.associate = (models => {
-        Cart.belongsTo(models.Item, {
-            foreignKey: 'order_number'
-        })
-    })
-    return Cart;
-}
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Cart extends Model {
+    static associate(models) {
+      Cart.hasMany(models.Item);
+      Cart.belongsTo(models.User);
+    }
+  }
+  Cart.init({
+    orderNumber: DataTypes.INTEGER,
+    total: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'Cart',
+    paranoid: true
+  });
+  return Cart;
+};

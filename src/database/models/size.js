@@ -1,13 +1,18 @@
-const {sequelize, DataTypes} = require('sequelize')
-
-module.exports = (sequelize,DataTypes) => {
-    const Size = sequelize.define('Size',{
-        number: DataTypes.STRING
-    },{
-        timestamps: false
-    }) 
-    Size.associate = models => {
-        Size.hasMany(models.Product)
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Size extends Model {
+    static associate(models) {
+      Size.hasMany(models.Product);
     }
-    return Size;
-}
+  }
+  Size.init({
+    number: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Size'
+  });
+  return Size;
+};

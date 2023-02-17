@@ -1,13 +1,18 @@
-const {sequelize, DataTypes} = require('sequelize')
-
-module.exports = (sequelize,DataTypes) => {
-    const Condition = sequelize.define('Condition',{
-        condition: DataTypes.STRING
-    },{
-        timestamps: false
-    }) 
-    Condition.associate = models => {
-        Condition.hasMany(models.Product)
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Condition extends Model {
+    static associate(models) {
+      Condition.hasMany(models.Product);
     }
-    return Condition;
-}
+  }
+  Condition.init({
+    condition: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Condition'
+  });
+  return Condition;
+};

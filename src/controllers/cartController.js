@@ -15,9 +15,9 @@ module.exports = {
                     quantity:req.body.cantidad,
                     subtotal: price * req.body.cantidad,
                     state: 1,
-                    user_id:req.session.usuario.id,
-                    product_id:req.body.productId,
-                    cart_id:null
+                    userId:req.session.usuario.id,
+                    productId:req.body.productId,
+                    cartId:null
                 })
                 res.redirect('/')
             } else {
@@ -33,7 +33,7 @@ module.exports = {
         try {
             let items = await Item.findAll({
                 where: {
-                    user_id: req.session.usuario.id,
+                    userId: req.session.usuario.id,
                     state: 1
                 },
                 include: {
@@ -53,8 +53,8 @@ module.exports = {
         try {
             await Item.destroy({
                 where: {
-                    product_id: req.body.itemId,
-                    user_id: req.session.usuario.id,
+                    productId: req.body.itemId,
+                    userId: req.session.usuario.id,
                     quantity: req.body.quantity
                 }
             })

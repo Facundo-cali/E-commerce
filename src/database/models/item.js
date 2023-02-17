@@ -1,24 +1,25 @@
-const {sequelize, DataTypes} = require('sequelize') 
-
-module.exports = (sequelize,DataTypes) => {
-    const Item = sequelize.define('Item',{
-        sale_price: DataTypes.INTEGER.UNSIGNED,
-        quantity: DataTypes.INTEGER.UNSIGNED,
-        subtotal: DataTypes.INTEGER.UNSIGNED,
-        state: DataTypes.INTEGER.UNSIGNED,
-        user_id: DataTypes.INTEGER.UNSIGNED,
-        product_id: DataTypes.INTEGER.UNSIGNED,
-        cart_id: DataTypes.INTEGER.UNSIGNED,
-    },{
-        timestamps: true
-    }) 
-    Item.associate = (models) => {
-        Item.belongsTo(models.User, {
-            foreignKey: 'user_id'
-        })
-        Item.belongsTo(models.Product, {
-            foreignKey: 'product_id'
-        })
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Item extends Model {
+    
+    static associate(models) {
+      Item.belongsTo(models.Product);
+      Item.belongsTo(models.User);
+      Item.belongsTo(models.Cart);
     }
-    return Item;
-}
+  }
+  Item.init({
+    salePrice: DataTypes.INTEGER,
+    quantity: DataTypes.INTEGER,
+    subtotal: DataTypes.INTEGER,
+    state: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'Item',
+    paranoid: true
+  });
+  return Item;
+};
