@@ -1,5 +1,5 @@
 # E-commerce
-My project is an e-commerce website that uses a variety of technologies, including HTML, CSS, MySQL, Express, Node, JavaScript, and Sequelize. The website allows users to register and log in to their account, search for products, create new products with images, edit and delete products, and more.
+My project is an e-commerce website that I developed independently, using a variety of technologies, including HTML, CSS, MySQL, Express, Node, JavaScript, and Sequelize. The website allows users to register and log in to their account, search for products, create new products with images, edit and delete products, and more.
 
 The website uses MySQL to store product information and user data. Node.js and Express are used to handle server-side logic, while Sequelize is used as an ORM (Object-Relational Mapping) tool to interact with the MySQL database.
 
