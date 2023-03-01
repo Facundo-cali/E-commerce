@@ -194,6 +194,20 @@ h2{
     padding: 10px;   
 }
 
+.cantidad{
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.cant_number{
+    max-width: 100%;
+    display: flex;
+    gap: 10px;
+}
+#cantidad{
+    width: 100%;
+}
+
 /*========------Fin detalle del producto================*/
 /*====== Formularios ======*/
 .main__login{
