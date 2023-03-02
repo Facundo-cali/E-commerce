@@ -1,11 +1,11 @@
 require('dotenv').config();
 
 //Config DB
-const host = process.env.DB_HOST;
-const username = process.env.DB_USER || 'root';
-const database = process.env.DB_NAME;
-const password = process.env.DB_PASS;
-const dialect = process.env.DB_TYPE;
+const host = process.env.MYSQLHOST;
+const username = process.env.MYSQLUSER || 'root';
+const database = process.env.MYSQLDATABASE;
+const password = process.env.MYSQLPASSWORD;
+const dialect = process.env.DB_DIALECT;
 
 //Config seeds
 const seederStorage = 'sequelize';
