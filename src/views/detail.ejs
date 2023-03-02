@@ -32,15 +32,14 @@
                 <% }) %>
                 <h2 id="price__detail">$ <%= toThousand(producto_encontrado.price) %> </h2>
                 <div class="buttons__detail">
-                    <form>
-                        <button class="button__detail" type="submit">COMPRAR AHORA</button>
-                    </form>
-                    <form id="cant" name="cant" action="/cart/addCart" method="post">
-                        <input type="hidden" name="productId" value="<%= producto_encontrado.id %>">
+                    <form id="cant" class="cantidad" name="cant" action="/cart/addCart" method="post">
+                        <input type="hidden" name="productId" id="productId" value="<%= producto_encontrado.id %>">
 
-                        <label for="cantidad">Cantidad</label>
-                        <input type="number" id="cantidad" name="cantidad" value="1">
-                        <button class="button__detail" type="submit">AGREGAR A CARRITO</button>
+                        <div class="cant_number">
+                            <label for="cantidad">Cantidad:</label>
+                            <input type="number" id="cantidad" name="cantidad" value="1">
+                        </div>
+                        <button class="button__detail" type="submit">AGREGAR A CARRITO</button>      
                         <small></small>
                     </form>
                     <form>

@@ -7,17 +7,19 @@ module.exports = {
     addCart: async (req,res) => {
         try {
             const errores = validationResult(req)
+            console.log(errores);
             if (errores.isEmpty()) {
                 let product = await Product.findByPk(req.body.productId, {include:{all:true}})
+                console.log(product);
                 let price = Number(product.price);
                 Item.create({
-                    sale_price:price,
+                    salePrice:price,
                     quantity:req.body.cantidad,
                     subtotal: price * req.body.cantidad,
                     state: 1,
-                    userId:req.session.usuario.id,
-                    productId:req.body.productId,
-                    cartId:null
+                    UserId:req.session.usuario.id,
+                    ProductId:req.body.productId,
+                    CartId:null
                 })
                 res.redirect('/')
             } else {
@@ -33,7 +35,7 @@ module.exports = {
         try {
             let items = await Item.findAll({
                 where: {
-                    userId: req.session.usuario.id,
+                    UserId: req.session.usuario.id,
                     state: 1
                 },
                 include: {
@@ -53,8 +55,8 @@ module.exports = {
         try {
             await Item.destroy({
                 where: {
-                    productId: req.body.itemId,
-                    userId: req.session.usuario.id,
+                    ProductId: req.body.itemId,
+                    UserId: req.session.usuario.id,
                     quantity: req.body.quantity
                 }
             })
@@ -68,7 +70,7 @@ module.exports = {
         try {
             let items = await Item.findAll({
                 where: {
-                    user_id: req.session.usuario.id,
+                    UserId: req.session.usuario.id,
                     state: 1
                 }
             })
@@ -76,16 +78,16 @@ module.exports = {
               
             let total = items.reduce((total, item) => (total = total + Number(item.subtotal)),0)
             let cart = await Cart.create({
-                order_number: random(),
-                user_id: req.session.usuario.id,
+                orderNumber: random(),
+                UserId: req.session.usuario.id,
                 total:total
             })
             await Item.update({
                 state: 0,
-                cart_id:cart.id
+                CartId:cart.id
             },{
                 where: { 
-                    user_id:  req.session.usuario.id,
+                    UserId:  req.session.usuario.id,
                     state: 1
                 }
             })
@@ -99,7 +101,7 @@ module.exports = {
         try {
             let items = await Item.findAll({
                 where: {
-                    user_id: req.session.usuario.id,
+                    UserId: req.session.usuario.id,
                     state: 0
                 },
                 include: {
