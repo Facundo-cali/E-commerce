@@ -24,8 +24,10 @@ app.use(express.static('public'));
 app.use(methodOverride('_method'));
 app.use(session({
   secret: 'pagina de facu!',
-  resave: true,
-  saveUninitialized: true
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true },
+  store: new session.MemoryStore()
 }));
 //mis middlewares
 app.use(log);
