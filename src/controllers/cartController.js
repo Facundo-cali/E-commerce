@@ -75,7 +75,7 @@ module.exports = {
                     state: 1
                 }
             })
-            const random = parseInt(Date.now() + Math.random());
+            const random = () => parseInt(Date.now() + Math.random());
               
             let total = items.reduce((total, item) => (total = total + Number(item.subtotal)),0)
             let cart = await Cart.create({
