@@ -10,7 +10,6 @@ module.exports = {
             console.log(errores);
             if (errores.isEmpty()) {
                 let product = await Product.findByPk(req.body.productId, {include:{all:true}})
-                console.log(product);
                 let price = Number(product.price);
                 Item.create({
                     salePrice:price,
@@ -106,10 +105,10 @@ module.exports = {
                     state: 0
                 },
                 include: {
-                    all: true,
-                    nested: true
+                    model: Product
                 }
             })
+            
             res.render('bought', {cartProducto: items})
         } catch (error) {
             console.log(error);

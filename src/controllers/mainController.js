@@ -8,11 +8,10 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 module.exports = {
     index: async (req, res) => {
 		try {
-			const products = await Product.findAll({include:{all:true}})
-			res.render('index', {products, toThousand})
-			
+			const products = await Product.findAll({ where: { disponible: true } },{include:{all:true}})
+			res.render('index', {products,toThousand})
 		} catch (error) {
 			console.log(error);
 		}
-	},
+	}
 }

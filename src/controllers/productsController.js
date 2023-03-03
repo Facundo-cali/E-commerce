@@ -37,7 +37,7 @@ module.exports = {
 
 	all: async (req, res) => {
 		try {
-			const products = await Product.findAll({include:{all:true}})
+			const products = await Product.findAll({ where: { disponible: true } },{include:{all:true}})
 			res.render('index', {products,toThousand})
 		} catch (error) {
 			console.log(error);
@@ -84,7 +84,8 @@ module.exports = {
 					ConditionId:req.body.condition_id,
 					ColorId:req.body.color_id,
 					SizeId:req.body.size_id,
-					image:req.file.filename
+					image:req.file.filename,
+					disponible:true
 				}
 				const newProduct = await Product.create(info)
 				res.redirect('/products');	
@@ -123,10 +124,22 @@ module.exports = {
 	},
 
 	destroy: async (req, res) => {
-		const productId = req.params.id;
-		const toDelete = await Product.findByPk(productId)
-		await toDelete.destroy();
-		res.redirect('/products');
+		try {
+		  const { id } = req.params;
+		  const product = await Product.findByPk(id);
+	  
+		  if (!product) {
+			return res.status(404).send("Producto no encontrado");
+		  }
+	  
+		  // Actualiza el campo "disponible" a "false"
+		  product.disponible = false;
+		  await product.save();
+	  
+		  return res.status(204).redirect('/products');
+		} catch (err) {
+		  console.error(err);
+		  return res.status(500).send("Error interno del servidor");
+		}
 	}
-	
 };
