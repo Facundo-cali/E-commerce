@@ -32,6 +32,7 @@ module.exports = {
 	processLogin:async (req,res)=> {
 		try {
 			// entramos aca una vez que el usuario exista y la contraseña sea correcta
+			console.log(req.session);
 			let errors = (validationResult(req));
 			if (errors.isEmpty()) { //me fijo si no hay errores
 				const users = await User.findAll({include:{all:true}})	// primero llamo a los usuarios

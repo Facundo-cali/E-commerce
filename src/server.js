@@ -23,11 +23,9 @@ app.use(cookie());
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
 app.use(session({
-  secret: 'pagina de facu!',
+  secret: 'my-secret-key',
   resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true },
-  store: new session.MemoryStore()
+  saveUninitialized: true
 }));
 //mis middlewares
 app.use(log);

@@ -33,6 +33,7 @@ module.exports = {
 
     cart: async (req,res) => {
         try {
+            console.log(req.session);
             let items = await Item.findAll({
                 where: {
                     UserId: req.session.usuario.id,
@@ -114,5 +115,4 @@ module.exports = {
             console.log(error);
         }
     }
-
 }
