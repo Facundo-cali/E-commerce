@@ -10,4 +10,4 @@ The user interface of the website is designed using HTML and CSS, with JavaScrip
 In addition, the website includes a product management system that allows authorized users to create, edit, and delete products, along with uploading images for each product. The website also includes a registration and login system to ensure secure access to user accounts.
 
 Overall, the website provides a complete e-commerce solution that enables users to browse, search, and purchase products in a secure and user-friendly environment.
-# Link: (Please note that the first time accessing the page may take a while.)
+# Link: https://e-commerce-sbjm.onrender.com/ (Please note that the first time accessing the page may take a while.)
