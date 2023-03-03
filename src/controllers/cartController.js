@@ -33,7 +33,7 @@ module.exports = {
 
     cart: async (req,res) => {
         try {
-            console.log(req.session);
+            
             let items = await Item.findAll({
                 where: {
                     UserId: req.session.usuario.id,
@@ -75,7 +75,7 @@ module.exports = {
                     state: 1
                 }
             })
-            const random = (deepness = 10) => parseInt(Date.now() + Math.random()*deepness);
+            const random = parseInt(Date.now() + Math.random());
               
             let total = items.reduce((total, item) => (total = total + Number(item.subtotal)),0)
             let cart = await Cart.create({
