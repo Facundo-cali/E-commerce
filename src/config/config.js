@@ -6,7 +6,7 @@ module.exports = {
       "password": process.env.MYSQLPASSWORD,
       "database": process.env.MYSQLDATABASE,
       "host": process.env.MYSQLHOST,
-      "dialect": "mysql",
+      "dialect": process.env.DB_DIALECT,
       "port": process.env.MYSQLPORT
     },
     "test": {
@@ -14,7 +14,7 @@ module.exports = {
       "password": process.env.MYSQLPASSWORD,
       "database": process.env.MYSQLDATABASE,
       "host": process.env.MYSQLHOST,
-      "dialect": "mysql",
+      "dialect": process.env.DB_DIALECT,
       "port": process.env.MYSQLPORT
 
     },
@@ -23,7 +23,7 @@ module.exports = {
       "password": process.env.MYSQLPASSWORD,
       "database": process.env.MYSQLDATABASE,
       "host": process.env.MYSQLHOST,
-      "dialect": "mysql",
+      "dialect": process.env.DB_DIALECT,
       "port": process.env.MYSQLPORT
     }
   }
