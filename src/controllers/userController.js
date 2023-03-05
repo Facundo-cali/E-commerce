@@ -19,6 +19,7 @@ module.exports = {
 				surname:req.body.surname,
 				email:req.body.email,
 				pwHash:bcrypt.hashSync(req.body.password, 10),
+				isAdmin:false
 			}
 			const newUser = User.create(info);
 			res.redirect('/products');
@@ -32,13 +33,10 @@ module.exports = {
 	processLogin:async (req,res)=> {
 		try {
 			// entramos aca una vez que el usuario exista y la contraseña sea correcta
-			console.log(req.session);
 			let errors = (validationResult(req));
 			if (errors.isEmpty()) { //me fijo si no hay errores
 				const users = await User.findAll({include:{all:true}})	// primero llamo a los usuarios
 				
-				
-
 				let usuarioEncontrado = users.find(usuario => usuario.email == req.body.email)//busco usuario ingresado en la base de datos
 
 				if (usuarioEncontrado == undefined) { //si no lo encuentra tira error

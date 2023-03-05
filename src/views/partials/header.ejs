@@ -4,16 +4,17 @@
     <div class="container__menu">
             <nav class="nav1">
                 <% if (usuario){ %> 
-                    <a href="">HOMBRE</a>
-                    <a href="">MUJER</a>
+                    <a href="/products/categorie/1">HOMBRE</a>
+                    <a href="/products/categorie/2">MUJER</a>
                     <a href="">OFERTAS</a>
                     <a href="/products">PRODUCTOS</a>
-                    <a href="/products/create">VENDER</a>
+                    <% if (usuario.isAdmin) { %>
+                        <a href="/products/create">VENDER</a>
+                    <% } %>
                 <% }else { %>
-                    <a href="">HOMBRE</a>
-                    <a href="">MUJER</a>
+                    <a href="/products/categorie/1">HOMBRE</a>
+                    <a href="/products/categorie/2">MUJER</a>
                     <a href="">OFERTAS</a>
-                    <a href="/products/create">VENDER</a>
                     <a href="/products">PRODUCTOS</a>
                 <% } %>  
             </nav>

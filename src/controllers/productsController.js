@@ -141,5 +141,16 @@ module.exports = {
 		  console.error(err);
 		  return res.status(500).send("Error interno del servidor");
 		}
+	},
+
+	categorie: async (req, res) => {
+		try {
+			const {id} = req.params;
+			const products = await Product.findAll({ where: { CategorieId: id } })
+			res.render('products', {products, toThousand})	
+			
+		} catch (error) {
+			console.log(error);
+		}
 	}
 };
