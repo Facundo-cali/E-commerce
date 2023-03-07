@@ -8,10 +8,15 @@ const { json, urlencoded } = require('body-parser');
 const cookie = require('cookie-parser');
 const cookieParser = require('cookie-parser');
 var session = require('express-session');
+const bodyParser = require('body-parser');
 
 const log = require('./middlewares/application/log.js')
 
 const app = express();
+
+// Configurar el límite de tamaño máximo de carga de archivos a 10MB
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
 // view engine setup
 app.set('views', path.join(__dirname, '/views'));

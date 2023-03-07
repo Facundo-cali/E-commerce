@@ -8,32 +8,51 @@ const {Product, Categorie, Color, Condition, Size} = require('../database/models
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-//subir imagen
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, path.join(__dirname,'../../public/images'))
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname))
-    }
-})
-const upload = multer({ 
-    storage: storage,
-    limits: { fileSize: '10000000'},
-    fileFilter: (req, file, cb) => {
-        const fileTypes = /jpeg|jpg|png|gif/
-        const mimeType = fileTypes.test(file.mimetype)
-        const extname = fileTypes.test(path.extname(file.originalname))
+var admin = require("firebase-admin");
 
-		if (mimeType && extname) {
-			return cb(null, true)
+var serviceAccount = require('../path/to/e-commerce-d1475-firebase-adminsdk-2ilch-81584191f7.json');
+
+const BUCKET = 'e-commerce-d1475.appspot.com';
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  storageBucket: BUCKET
+});
+
+const bucket = admin.storage().bucket();
+
+const uploadImage = (req, res, next) => {
+	if (!req.file) {
+		return next();
+	}
+	const image = req.file
+	const filename = Date.now() + "." + image.originalname.split('.').pop();
+
+	file = bucket.file(filename);
+
+	const stream = file.createWriteStream({
+		metadata: {
+			contentType: image.mimetype
 		}
-		cb('Dar el formato de archivos adecuado para cargar')
-    }
-}).single('image')
+	});
+
+	stream.on('error', (err) => {
+		console.log(err);
+	});
+
+	stream.on('finish', async () => {
+		//retornar archivo publico
+		await file.makePublic();
+		//obtener url publica
+		req.body.image = `https://storage.googleapis.com/${BUCKET}/${filename}`;
+		next();
+	});
+
+	stream.end(image.buffer);
+}
 
 module.exports = {
-	upload,
+	// upload,
 
 	all: async (req, res) => {
 		try {
@@ -69,6 +88,7 @@ module.exports = {
 	},
 
 	store: async (req, res) => {
+		
 		try {
 			const categories = await Categorie.findAll();
 			const conditions = await Condition.findAll();
@@ -76,6 +96,7 @@ module.exports = {
 			const sizes = await Size.findAll();
 			const resultado = validationResult(req);
 			if(resultado.isEmpty()){
+				
 				let info = {
 					name: req.body.name,
 					price:req.body.price,        //Tambien se puede hacer let NewProduct = { id:17, ...req}(...req toma todas las propiedades)
@@ -84,20 +105,18 @@ module.exports = {
 					ConditionId:req.body.condition_id,
 					ColorId:req.body.color_id,
 					SizeId:req.body.size_id,
-					image:req.file.filename,
+					image:req.body.image,
 					disponible:true
 				}
-				const newProduct = await Product.create(info)
-				res.redirect('/products');	
+				// subir la imagen a firebase antes de guardar el producto
+				uploadImage(req, res, async () => {
+					// asignar la URL de la imagen a la propiedad de imagen del objeto info
+					info.image = req.body.image;
+					const newProduct = await Product.create(info);
+					res.redirect('/products');
+				});
 			}else {
 				res.render('product-create-form',{errors: resultado.errors,categories,conditions,colors,sizes});
-				//Esto hace que si salta algun error (ej no poner titulo), la imagen que se sube no se suba
-				const direc = path.join(__dirname,'../../public/images');
-				let file = req.file.filename
-				let pathh = String(`${direc}/${file}`);
-				fs.unlink(pathh, (err => {
-					if (err) console.log(err);
-				}));
 			}
 		} catch (error) {
 			console.log(error);

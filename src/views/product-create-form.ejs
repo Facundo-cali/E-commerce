@@ -66,10 +66,11 @@
                     		<% }) %>
 						</select>
 					</div>
-					<div class="">
-						<label for="" class="">Selecciona una imagen:</label>
-						<input class="form__completar" type="file" name="image">
-					</div>
+
+					<form>
+						<label for="file-input">Selecciona una imagen:</label>
+						<input id="file-input" type="file" name="image">
+					  </form>
 					<div class="">
 						<button type="submit" class="form__button">Guardar producto</button>
 					</div>
@@ -83,4 +84,6 @@
 	<%- include('partials/footer') %>
 	<!-- /footer -->
 </body>	
+<script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-storage.js"></script>
+<script src="/javascripts/fire.js"></script>
 </html>

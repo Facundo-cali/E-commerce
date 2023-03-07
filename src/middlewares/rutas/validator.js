@@ -32,15 +32,15 @@ module.exports = {
         body ("size_id")
             .notEmpty()
             .withMessage('Completar tamaño de la prenda'),
-        body ("image")
-            .custom(function(value, { req }){
-                if (req.file != undefined){
-                    return true; 
-                }
-                return false;
-            })
-            .withMessage("Imagen obligatoria")
-            .bail() //bail corta el resto de las validaciones si la anterior da falsa  
+        // body ("image")
+        //     .custom(function(value, { req }){
+        //         if (req.file != undefined){
+        //             return true; 
+        //         }
+        //         return false;
+        //     })
+        //     .withMessage("Imagen obligatoria")
+        //     .bail() //bail corta el resto de las validaciones si la anterior da falsa  
             
     ],
 
