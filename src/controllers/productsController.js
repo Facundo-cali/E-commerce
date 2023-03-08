@@ -165,7 +165,10 @@ module.exports = {
 	categorie: async (req, res) => {
 		try {
 			const {id} = req.params;
-			const products = await Product.findAll({ where: { CategorieId: id } })
+			const products = await Product.findAll({ where: {
+				CategorieId: id,
+				disponible: true }
+			})
 			res.render('products', {products, toThousand})	
 			
 		} catch (error) {

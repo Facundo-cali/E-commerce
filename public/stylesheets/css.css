@@ -10,7 +10,7 @@ a {
 }
 
 body{
-    background-color: #E6BA95;
+    background-color: #393E46;
 }
 
 /*========------HEADER================--*/
@@ -18,7 +18,7 @@ h3{
     margin:7px auto;
 }
 .header__container{
-    background-color: #E0D8B0;
+    background-color: #F7F7F7;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -37,6 +37,7 @@ h3{
     justify-content: space-evenly;
 }
 .container__menu .nav2{
+    border-color: #EEEEEE;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -100,7 +101,7 @@ h2{
 }
 .oferta_ind{
     width: 90%;
-    background-color: #CE9461;
+    background-color: #929AAB;
     border-radius: 3% 3% 3% 3%;
     margin: 1% 0% 1% 0%;
     color: white;
@@ -176,7 +177,7 @@ h2{
     font-size: 100%;
     border: transparent;
     width: 100%;
-    background-color: #e6ba95;
+    background-color: #929AAB;
     text-align: center;
     color: white;
     border-radius: 2px;
@@ -200,7 +201,7 @@ h2{
 /*========------Fin detalle del producto================*/
 /*====== Formularios ======*/
 .main__login{
-    background-color: #DEA057;
+    background-color: #929AAB;
     border-radius: 5%;
     width: 100%;
     max-width: 510px;
@@ -223,6 +224,9 @@ h2{
     padding: 10px 10px 10px 10px;
 }
 
+.form__login{
+    text-align: center;
+}
 
 
 .buttons{
@@ -231,12 +235,13 @@ h2{
     justify-items: center;
 }
 .form__button{
-    width: 70%;
+    width: 50%;
     background-color: #0044AA;
     color: white;
-    border-radius: 2px;
+    border-radius: 35px;
     padding: 10px;
     border: 0px;
+    margin: 2%;
 }
 /*======FINAL DE Formularios ======*/
 

@@ -9,13 +9,13 @@
 
 	<!-- todos los productos -->
 	<main>
-        <h2>Todos los productos!</h2>
+        <h2 class="titu">Todos los productos!</h2>
         
         <section class="ofertas">
             <% products.forEach(product => { %>
             <div class="oferta_ind">
                 <a href="/products/detail/<%= product.id %>">
-                <img src="/images/<%=product.image%>" alt="oferta1"></a>
+                <img src="<%=product.image%>" alt="oferta1"></a>
                 <div class="descr_ofer">
                     <div class="p_de_ofer">
                         <h2 id="price">$<%=product.price%></h2>
