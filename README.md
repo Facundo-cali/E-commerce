@@ -10,7 +10,7 @@ The user interface of the website is designed using HTML and CSS, with JavaScrip
 In addition, the website includes a product management system that allows authorized users to create, edit, and delete products, along with uploading images for each product. The website also includes a registration and login system to ensure secure access to user accounts.
 
 Overall, the website provides a complete e-commerce solution that enables users to browse, search, and purchase products in a secure and user-friendly environment.
-# Link: https://e-commerce-zt7s.onrender.com (Please note that the first time accessing the page may take a while.)
+# Link: https://ecommerce-vq0s.onrender.com (Please note that the first time accessing the page may take a while.)
 
 #Important note: 
 Only the administrator user admin@gmail.com with password 12345 has permissions to create new products in this project. But if you want to enter as a regular user you can use, you can create one or log in to the system using the test user noadmin@gmail.com with password 12345.
